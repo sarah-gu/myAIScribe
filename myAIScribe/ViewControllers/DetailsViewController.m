@@ -6,9 +6,10 @@
 //
 
 #import "DetailsViewController.h"
+@import Parse;
 
 @interface DetailsViewController ()
-@property (weak, nonatomic) IBOutlet UIImageView *largeImageView;
+@property (weak, nonatomic) IBOutlet PFImageView *largeImageView;
 
 @end
 
@@ -17,6 +18,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    _note = self.note;
+    self.largeImageView.file = self.note[@"image"];
+    [self.largeImageView loadInBackground];
+    
 }
 
 
