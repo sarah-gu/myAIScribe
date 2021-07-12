@@ -86,19 +86,24 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
 - Send requests to the CoreML API 
 - Parse Network uploads a new Note 
 
-# Weekly Plan
+## Work Plan 
+**Required MVP Stories**
+* Week 1
+  * Set up the general workflow of required User Stories mentioned above (LoginViewController, SettingsViewController, NotesViewController, ScannerViewController) [1-2 days]
+  * Try out a simple CoreML feature of text recognition [1 day]
+  * Integrate the CoreML feature into the app, doing a basic image to text translation system. At the same time, expand the Notes model to incorporate more fields, such as adding a subject tag when uploading a Note to the backend. [1-2 days] 
+* Week 2
+  * Use the text translated from CoreML to create different tabs for the Notes page, i.e filtering by Class, time created, subject. [1-3 days] 
+  * Create new pages for the Goals & reminders tabs, adding more view controllers for different tabs in the Settings page. [1-2 days]
+**Stretch Goals**
+* Week 3 
+  * Integrate a visualization API to the Goals page, adding animation + customization features. [1 day]
+  * Add additional ML features of suggesting similar classes / notes based on uploaded notes and subjects. [1-2 days] 
+  * Add a search bar for notes based on the text translation from CoreML. [1-2 days] 
+* Week 4 & 5
+  * Put final touches on app & prepare for demo
 
--Week 1
--Set up basic framework (ProfilePage, LoginPage, ScanningPage) (2 days) 
--Look into CoreML API & set up a basic computer vision text reader tool (https://developer.apple.com/documentation/coreml) (1 day) 
-(https://developer.apple.com/documentation/vision)
 
-- Implement the Vision function into the app (i.e convert the words on the page into text) (2 days) 
-
-- Week 2
--  
-
-Stretch Goal : highlighting keywords, implement feature analysis (optional), define subject in a user field while uploading the image 
 
 
 
