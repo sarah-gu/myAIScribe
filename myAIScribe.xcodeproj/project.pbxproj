@@ -7,6 +7,9 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		5331A2314FDA6FC51AB0E801 /* Pods_myAIScribeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91E246E23C9C440A89F2F13 /* Pods_myAIScribeTests.framework */; };
+		75A5E8CF9E38FEA6B6F52446 /* Pods_myAIScribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112978AC55B8E02A5567FED2 /* Pods_myAIScribe.framework */; };
+		78F465146CE0E0BCFA92A199 /* Pods_myAIScribe_myAIScribeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */; };
 		82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211BA269C7DDD007407C2 /* AppDelegate.m */; };
 		82D211BE269C7DDD007407C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211BD269C7DDD007407C2 /* SceneDelegate.m */; };
 		82D211C1269C7DDD007407C2 /* ViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211C0269C7DDD007407C2 /* ViewController.m */; };
@@ -36,6 +39,9 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		0FF421D2F57FF04A0F3FD379 /* Pods-myAIScribe-myAIScribeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.release.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.release.xcconfig"; sourceTree = "<group>"; };
+		112978AC55B8E02A5567FED2 /* Pods_myAIScribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		51ADCE6965150EF6AB76D9A6 /* Pods-myAIScribeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.release.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.release.xcconfig"; sourceTree = "<group>"; };
 		82D211B6269C7DDD007407C2 /* myAIScribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAIScribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D211B9269C7DDD007407C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82D211BA269C7DDD007407C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -54,6 +60,12 @@
 		82D211DC269C7DDE007407C2 /* myAIScribeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = myAIScribeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D211E0269C7DDE007407C2 /* myAIScribeUITests.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = myAIScribeUITests.m; sourceTree = "<group>"; };
 		82D211E2269C7DDE007407C2 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
+		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
+		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		B49C33C710ECED4727E83D74 /* Pods-myAIScribe.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe/Pods-myAIScribe.debug.xcconfig"; sourceTree = "<group>"; };
+		B91E246E23C9C440A89F2F13 /* Pods_myAIScribeTests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribeTests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E8FA86B329D122143C5B861E /* Pods-myAIScribe.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe.release.xcconfig"; path = "Target Support Files/Pods-myAIScribe/Pods-myAIScribe.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -61,6 +73,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				75A5E8CF9E38FEA6B6F52446 /* Pods_myAIScribe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -68,6 +81,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				5331A2314FDA6FC51AB0E801 /* Pods_myAIScribeTests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -75,12 +89,27 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				78F465146CE0E0BCFA92A199 /* Pods_myAIScribe_myAIScribeUITests.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		5F8B8626EABF54EFFF41D0B1 /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				B49C33C710ECED4727E83D74 /* Pods-myAIScribe.debug.xcconfig */,
+				E8FA86B329D122143C5B861E /* Pods-myAIScribe.release.xcconfig */,
+				9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */,
+				0FF421D2F57FF04A0F3FD379 /* Pods-myAIScribe-myAIScribeUITests.release.xcconfig */,
+				A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */,
+				51ADCE6965150EF6AB76D9A6 /* Pods-myAIScribeTests.release.xcconfig */,
+			);
+			name = Pods;
+			path = Pods;
+			sourceTree = "<group>";
+		};
 		82D211AD269C7DDD007407C2 = {
 			isa = PBXGroup;
 			children = (
@@ -88,6 +117,8 @@
 				82D211D4269C7DDE007407C2 /* myAIScribeTests */,
 				82D211DF269C7DDE007407C2 /* myAIScribeUITests */,
 				82D211B7269C7DDD007407C2 /* Products */,
+				5F8B8626EABF54EFFF41D0B1 /* Pods */,
+				B8CE668471F2A2E21BE36196 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -104,6 +135,9 @@
 		82D211B8269C7DDD007407C2 /* myAIScribe */ = {
 			isa = PBXGroup;
 			children = (
+				82D211F0269C80A9007407C2 /* Models */,
+				82D211EF269C80A3007407C2 /* Views */,
+				82D211EE269C809C007407C2 /* ViewControllers */,
 				82D211B9269C7DDD007407C2 /* AppDelegate.h */,
 				82D211BA269C7DDD007407C2 /* AppDelegate.m */,
 				82D211BC269C7DDD007407C2 /* SceneDelegate.h */,
@@ -137,6 +171,37 @@
 			path = myAIScribeUITests;
 			sourceTree = "<group>";
 		};
+		82D211EE269C809C007407C2 /* ViewControllers */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = ViewControllers;
+			sourceTree = "<group>";
+		};
+		82D211EF269C80A3007407C2 /* Views */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Views;
+			sourceTree = "<group>";
+		};
+		82D211F0269C80A9007407C2 /* Models */ = {
+			isa = PBXGroup;
+			children = (
+			);
+			path = Models;
+			sourceTree = "<group>";
+		};
+		B8CE668471F2A2E21BE36196 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				112978AC55B8E02A5567FED2 /* Pods_myAIScribe.framework */,
+				AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */,
+				B91E246E23C9C440A89F2F13 /* Pods_myAIScribeTests.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -144,9 +209,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82D211E5269C7DDE007407C2 /* Build configuration list for PBXNativeTarget "myAIScribe" */;
 			buildPhases = (
+				3A9BF6A4B1CC3E679507840B /* [CP] Check Pods Manifest.lock */,
 				82D211B2269C7DDD007407C2 /* Sources */,
 				82D211B3269C7DDD007407C2 /* Frameworks */,
 				82D211B4269C7DDD007407C2 /* Resources */,
+				564DC5877A348ACBCA8D11C4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -161,6 +228,7 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82D211E8269C7DDE007407C2 /* Build configuration list for PBXNativeTarget "myAIScribeTests" */;
 			buildPhases = (
+				61936DB98EA4613AE1A5BDD2 /* [CP] Check Pods Manifest.lock */,
 				82D211CD269C7DDE007407C2 /* Sources */,
 				82D211CE269C7DDE007407C2 /* Frameworks */,
 				82D211CF269C7DDE007407C2 /* Resources */,
@@ -179,9 +247,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 82D211EB269C7DDE007407C2 /* Build configuration list for PBXNativeTarget "myAIScribeUITests" */;
 			buildPhases = (
+				577B07814C868FF09C19D96A /* [CP] Check Pods Manifest.lock */,
 				82D211D8269C7DDE007407C2 /* Sources */,
 				82D211D9269C7DDE007407C2 /* Frameworks */,
 				82D211DA269C7DDE007407C2 /* Resources */,
+				665C92884A33B3E29AD6DAC4 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -260,6 +330,109 @@
 			runOnlyForDeploymentPostprocessing = 0;
 		};
 /* End PBXResourcesBuildPhase section */
+
+/* Begin PBXShellScriptBuildPhase section */
+		3A9BF6A4B1CC3E679507840B /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myAIScribe-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		564DC5877A348ACBCA8D11C4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myAIScribe/Pods-myAIScribe-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myAIScribe/Pods-myAIScribe-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myAIScribe/Pods-myAIScribe-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+		577B07814C868FF09C19D96A /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myAIScribe-myAIScribeUITests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		61936DB98EA4613AE1A5BDD2 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-myAIScribeTests-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		665C92884A33B3E29AD6DAC4 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
 
 /* Begin PBXSourcesBuildPhase section */
 		82D211B2269C7DDD007407C2 /* Sources */ = {
@@ -438,6 +611,7 @@
 		};
 		82D211E6269C7DDE007407C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = B49C33C710ECED4727E83D74 /* Pods-myAIScribe.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -456,6 +630,7 @@
 		};
 		82D211E7269C7DDE007407C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = E8FA86B329D122143C5B861E /* Pods-myAIScribe.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -474,6 +649,7 @@
 		};
 		82D211E9269C7DDE007407C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -494,6 +670,7 @@
 		};
 		82D211EA269C7DDE007407C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 51ADCE6965150EF6AB76D9A6 /* Pods-myAIScribeTests.release.xcconfig */;
 			buildSettings = {
 				BUNDLE_LOADER = "$(TEST_HOST)";
 				CODE_SIGN_STYLE = Automatic;
@@ -514,6 +691,7 @@
 		};
 		82D211EC269C7DDE007407C2 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZMWDYZ6ZWJ;
@@ -532,6 +710,7 @@
 		};
 		82D211ED269C7DDE007407C2 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 0FF421D2F57FF04A0F3FD379 /* Pods-myAIScribe-myAIScribeUITests.release.xcconfig */;
 			buildSettings = {
 				CODE_SIGN_STYLE = Automatic;
 				DEVELOPMENT_TEAM = ZMWDYZ6ZWJ;

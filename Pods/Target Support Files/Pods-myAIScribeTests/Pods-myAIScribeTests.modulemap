@@ -1,0 +1,6 @@
+framework module Pods_myAIScribeTests {
+  umbrella header "Pods-myAIScribeTests-umbrella.h"
+
+  export *
+  module * { export * }
+}
