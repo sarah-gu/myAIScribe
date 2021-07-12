@@ -4,7 +4,7 @@
 //
 //  Created by Sarah Wen Gu on 7/12/21.
 //
-
+@import Parse;
 #import "Note.h"
 #import "Parse/Parse.h"
 
@@ -30,6 +30,7 @@
     newNote.image = [self getPFFileFromImage:image];
     
     newNote.author = [PFUser currentUser];
+    NSLog(@"saving post"); 
     //newNote.caption = caption;
     //newNote.likeCount = @(0);
     //newNote.commentCount = @(0);

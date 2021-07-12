@@ -7,6 +7,9 @@
 
 #import "ScanViewController.h"
 #import "Note.h"
+#import "SceneDelegate.h"
+#import "LoginViewController.h"
+
 @interface ScanViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *notePic;
 
@@ -24,7 +27,12 @@
     [Note postUserImage:imageToPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded){
             NSLog(@"posted image successfuly");
-            [self dismissViewControllerAnimated:true completion:nil];
+            SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+            //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+            
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UINavigationController *displayViewController = [storyboard instantiateViewControllerWithIdentifier:@"DisplayViewNavController" ];
+            appDelegate.window.rootViewController = displayViewController;
         }
         else{
             NSLog(@"Error posting: %@", error.localizedDescription);
@@ -32,9 +40,20 @@
     }];
     
 }
+- (IBAction)logoutBtn:(id)sender {
+    SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+    //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
+    
+    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+    LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController" ];
+    appDelegate.window.rootViewController = loginViewController;
+    NSLog(@"logged out");
+    [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
+    }];
+}
 - (IBAction)takeNewPic:(id)sender {
     
-    [self takePic]; 
+    [self takePic];
 }
 
 -(void) takePic {
@@ -63,8 +82,6 @@
     // Get the image captured by the UIImagePickerController
     //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-
-    // Do something with the images (based on your use case)
     
     [self.notePic setImage:editedImage];
     
