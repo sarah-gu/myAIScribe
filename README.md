@@ -19,7 +19,7 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
 - **Story:** Creates a seamlined and all-in-one-place view of notes, with ML automatically highlighting the phrases and keywords. 
 - **Market:** Any student can use this app. 
 - **Habit:** Students use the app to keep track of their notes, and have a faster note-taking system altogether. Additionally, students can use the app to create goals for their note-taking and study habits. 
-- **Scope:** V1 could be the basic scanning / storing notes setup without any ML function. V2 would expand to incorporate CoreML auto-highlighting capability. V3 would add in ability to track graphs set goals. 
+- **Scope:** V1 could be the basic scanning / storing notes setup without any ML function. V2 would expand to incorporate CoreML image to text translator (search function). V3 would add in ability to track graphs set goals. V4 stretch goal incorporate user field subject and highlight based on user input. 
 
 ## Product Spec
 
@@ -85,5 +85,23 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
 ### Networking
 - Send requests to the CoreML API 
 - Parse Network uploads a new Note 
+
+# Weekly Plan
+
+-Week 1
+-Set up basic framework (ProfilePage, LoginPage, ScanningPage) (2 days) 
+-Look into CoreML API & set up a basic computer vision text reader tool (https://developer.apple.com/documentation/coreml) (1 day) 
+(https://developer.apple.com/documentation/vision)
+
+- Implement the Vision function into the app (i.e convert the words on the page into text) (2 days) 
+
+- Week 2
+-  
+
+Stretch Goal : highlighting keywords, implement feature analysis (optional), define subject in a user field while uploading the image 
+
+
+
+
 
 
