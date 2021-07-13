@@ -36,7 +36,7 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteTableViewCell" ];
-    NSLog(@"%@", self.notes);
+    //NSLog(@"%@", self.notes);
     cell.photoImageView.layer.cornerRadius = 20;
     cell.photoImageView.clipsToBounds = YES;
    // [cell setPost:self.notes[indexPath.row]];
@@ -99,7 +99,6 @@
         
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.note = note;
-      //  NSLog(@"Tapping on a movie!");
     }
     
 }

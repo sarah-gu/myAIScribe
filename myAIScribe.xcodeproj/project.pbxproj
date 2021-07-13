@@ -25,6 +25,8 @@
 		82D21200269CA092007407C2 /* NoteTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211FF269CA092007407C2 /* NoteTableViewCell.m */; };
 		82D21203269CD89D007407C2 /* DetailsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D21202269CD89D007407C2 /* DetailsViewController.m */; };
 		82D21206269CDA6E007407C2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D21205269CDA6E007407C2 /* SettingsViewController.m */; };
+		82D427D8269DF32B0004044B /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D427D7269DF32B0004044B /* CoreML.framework */; };
+		82D427DA269DF3310004044B /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D427D9269DF3310004044B /* Vision.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -78,6 +80,8 @@
 		82D21202269CD89D007407C2 /* DetailsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = DetailsViewController.m; sourceTree = "<group>"; };
 		82D21204269CDA6E007407C2 /* SettingsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SettingsViewController.h; sourceTree = "<group>"; };
 		82D21205269CDA6E007407C2 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
+		82D427D7269DF32B0004044B /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
+		82D427D9269DF3310004044B /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
 		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -91,6 +95,8 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D427D8269DF32B0004044B /* CoreML.framework in Frameworks */,
+				82D427DA269DF3310004044B /* Vision.framework in Frameworks */,
 				75A5E8CF9E38FEA6B6F52446 /* Pods_myAIScribe.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +230,8 @@
 		B8CE668471F2A2E21BE36196 /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				82D427D9269DF3310004044B /* Vision.framework */,
+				82D427D7269DF32B0004044B /* CoreML.framework */,
 				112978AC55B8E02A5567FED2 /* Pods_myAIScribe.framework */,
 				AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */,
 				B91E246E23C9C440A89F2F13 /* Pods_myAIScribeTests.framework */,

@@ -7,13 +7,15 @@
 @import Parse;
 #import "Note.h"
 #import "Parse/Parse.h"
+#import <CoreML/CoreML.h>
+#import <Vision/Vision.h>
 
 @implementation Note
 
 @dynamic postID;
 @dynamic userID;
 @dynamic author;
-//@dynamic caption;
+@dynamic caption;
 @dynamic image;
 //@dynamic likeCount;
 //@dynamic commentCount;
@@ -30,8 +32,10 @@
     newNote.image = [self getPFFileFromImage:image];
     
     newNote.author = [PFUser currentUser];
-    NSLog(@"saving post"); 
-    //newNote.caption = caption;
+    NSLog(@"saving post");
+    
+    
+    newNote.caption = [self generateCaption:image];
     //newNote.likeCount = @(0);
     //newNote.commentCount = @(0);
     
@@ -68,6 +72,47 @@
     
     return newImage;
 }
++ (NSString *)generateCaption:(UIImage *)image {
+    CIImage* ciImage = [[CIImage alloc] initWithCGImage:image.CGImage];
+    NSDictionary *d = [[NSDictionary alloc] init];
+    VNImageRequestHandler *handler = [[VNImageRequestHandler alloc] initWithCIImage:ciImage options:d ];
+    
+    VNRecognizeTextRequest *myRequest = [VNRecognizeTextRequest new];
+    //myRequest.completionHandler(1, nil);
+    myRequest.recognitionLevel = VNRequestTextRecognitionLevelAccurate;
+    myRequest.revision = VNRecognizeTextRequestRevision1;
+    [handler performRequests:@[myRequest] error:nil];
+    NSString *toRet = @"";
+
+    NSLog(@"Generated Text: %@", myRequest.results); 
+    for (VNRecognizedTextObservation *observation in myRequest.results){
+        VNRecognizedText *myStr = [observation topCandidates:1][0];
+        
+        NSLog(@"%@", myStr.string);
+        toRet = [NSString stringWithFormat:@"%@ %@", toRet, myStr.string];
+//        CGRect boundingBox = observation.boundingBox;
+//
+//        CGSize size = CGSizeMake(boundingBox.size.width * self.sourceImgView.bounds.size.width, boundingBox.size.height * self.sourceImgView.bounds.size.height);
+//        CGPoint origin = CGPointMake(boundingBox.origin.x * self.sourceImgView.bounds.size.width, (1-boundingBox.origin.y)*self.sourceImgView.bounds.size.height - size.height);
+//
+//        CAShapeLayer *layer = [CAShapeLayer layer];
+//
+//        layer.frame = CGRectMake(origin.x, origin.y, size.width, size.height);
+//        layer.borderColor = [UIColor redColor].CGColor;
+//        layer.borderWidth = 2;
+//
+//        [self.sourceImgView.layer addSublayer:layer];
+//
+
+    }
+    return toRet;
+    
+    
+    
+    
+}
+
+
 @end
 
 

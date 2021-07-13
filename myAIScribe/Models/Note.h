@@ -13,7 +13,7 @@
 @property (nonatomic, strong) NSString *userID;
 @property (nonatomic, strong) PFUser *author;
 
-//@property (nonatomic, strong) NSString *caption;
+@property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) PFFileObject *image;
 //@property (nonatomic, strong) NSNumber *likeCount;
 //@property (nonatomic, strong) NSNumber *commentCount;
@@ -21,5 +21,4 @@
 
 
 + (void) postUserImage: ( UIImage * _Nullable )image withCompletion: (PFBooleanResultBlock  _Nullable)completion;
-
 @end
