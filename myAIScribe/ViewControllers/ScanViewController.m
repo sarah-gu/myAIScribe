@@ -31,8 +31,11 @@
             //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
             
             UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UINavigationController *displayViewController = [storyboard instantiateViewControllerWithIdentifier:@"DisplayViewNavController" ];
-            appDelegate.window.rootViewController = displayViewController;
+            UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
+            [tabViewController setSelectedIndex:1];
+            appDelegate.window.rootViewController = tabViewController;
+
+
         }
         else{
             NSLog(@"Error posting: %@", error.localizedDescription);

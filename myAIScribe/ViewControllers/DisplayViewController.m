@@ -16,10 +16,12 @@
 
 @interface DisplayViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+@property (weak, nonatomic) IBOutlet UISegmentedControl *notesViewControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *notes;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
-
+@property (nonatomic) int selectedID;
 @end
 
 @implementation DisplayViewController
@@ -29,9 +31,11 @@
     // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+
+    self.selectedID = (int) self.notesViewControl.selectedSegmentIndex;
     [self queryPosts];
     self.refreshControl = [[UIRefreshControl alloc] init]; //instantiate the refreshControl
-    [self.refreshControl addTarget:self action:@selector(queryPosts) forControlEvents:UIControlEventValueChanged];
+    [self.refreshControl addTarget:self action:@selector( queryPosts) forControlEvents:UIControlEventValueChanged];
     [self.tableView addSubview:self.refreshControl];
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -48,11 +52,24 @@
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
     return self.notes.count;
 }
+- (IBAction)onViewSwitch:(id)sender {
+    
+    self.selectedID  = (int) self.notesViewControl.selectedSegmentIndex;
+    
+    NSString *titleLabels[] = {@"My Notes", @"All Notes"};
+    self.titleLabel.text = titleLabels[self.notesViewControl.selectedSegmentIndex];
+    [self queryPosts];
+    [self.tableView reloadData];
+    
+}
 
 - (void) queryPosts{
 
     PFQuery *postQuery = [Note query];
     [postQuery orderByDescending:@"createdAt"];
+    if(self.selectedID == 0){
+        [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
+    }
     [postQuery includeKey:@"author"];
     postQuery.limit = 20;
 
@@ -70,6 +87,7 @@
     
     [self.refreshControl endRefreshing];
 }
+
 
 - (IBAction)logoutBtn:(id)sender {
     

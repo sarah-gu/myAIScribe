@@ -194,9 +194,11 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <segments>
                                     <segment title="My Notes"/>
-                                    <segment title="Friends"/>
                                     <segment title="Public"/>
                                 </segments>
+                                <connections>
+                                    <action selector="onViewSwitch:" destination="Gau-Zc-XwL" eventType="valueChanged" id="k6B-37-ywa"/>
+                                </connections>
                             </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b53-Pw-5S2"/>
@@ -210,7 +212,9 @@
                         </barButtonItem>
                     </navigationItem>
                     <connections>
+                        <outlet property="notesViewControl" destination="C5H-0T-OTA" id="9jX-vH-7yf"/>
                         <outlet property="tableView" destination="bp0-xg-c8S" id="FSf-Yd-Pq7"/>
+                        <outlet property="titleLabel" destination="zM1-ew-ei6" id="IQZ-Jx-d8I"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="diB-nE-apY" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -226,15 +230,24 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkQ-QG-3lw" customClass="PFImageView">
-                                <rect key="frame" x="0.0" y="88" width="390" height="600"/>
+                                <rect key="frame" x="0.0" y="88" width="390" height="534"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                             </imageView>
+                            <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="scrollable view" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71x-eC-cvm">
+                                <rect key="frame" x="0.0" y="621" width="390" height="140"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                                <color key="textColor" systemColor="labelColor"/>
+                                <fontDescription key="fontDescription" type="system" pointSize="14"/>
+                                <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
+                            </textView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ynY-WK-mob"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="Iau-Tc-I4v"/>
                     <connections>
+                        <outlet property="generatedCaption" destination="71x-eC-cvm" id="6Av-zN-Xee"/>
                         <outlet property="largeImageView" destination="tkQ-QG-3lw" id="SiV-a3-nm8"/>
                     </connections>
                 </viewController>
@@ -423,6 +436,9 @@
         <image name="gearshape.fill" catalog="system" width="128" height="121"/>
         <image name="note" catalog="system" width="128" height="106"/>
         <image name="square.and.pencil" catalog="system" width="128" height="115"/>
+        <systemColor name="labelColor">
+            <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

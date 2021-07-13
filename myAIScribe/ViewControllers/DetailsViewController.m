@@ -10,6 +10,7 @@
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *largeImageView;
+@property (weak, nonatomic) IBOutlet UITextView *generatedCaption;
 
 @end
 
@@ -21,7 +22,7 @@
     _note = self.note;
     self.largeImageView.file = self.note[@"image"];
     [self.largeImageView loadInBackground];
-    
+    self.generatedCaption.text = self.note[@"caption"]; 
 }
 
 
