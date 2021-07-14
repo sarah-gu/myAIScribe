@@ -16,10 +16,12 @@
 
 @interface DisplayViewController () <UITableViewDelegate, UITableViewDataSource>
 
+@property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (weak, nonatomic) IBOutlet UISegmentedControl *notesViewControl;
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (strong, nonatomic) NSArray *notes;
+@property (nonatomic, strong) NSMutableArray *filteredNotes;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic) int selectedID;
 @end
@@ -31,7 +33,8 @@
     // Do any additional setup after loading the view.
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
-
+    self.searchBar.delegate = self;
+    
     self.selectedID = (int) self.notesViewControl.selectedSegmentIndex;
     [self queryPosts];
     self.refreshControl = [[UIRefreshControl alloc] init]; //instantiate the refreshControl
@@ -40,17 +43,15 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteTableViewCell" ];
-    //NSLog(@"%@", self.notes);
     cell.photoImageView.layer.cornerRadius = 20;
     cell.photoImageView.clipsToBounds = YES;
-   // [cell setPost:self.notes[indexPath.row]];
-    [cell setNote:self.notes[indexPath.row]];
+    [cell setNote:self.filteredNotes[indexPath.row]];
     
     return cell;
     
 }
 - (NSInteger)tableView:(UITableView *)tableView numberOfRowsInSection:(NSInteger)section{
-    return self.notes.count;
+    return self.filteredNotes.count;
 }
 - (IBAction)onViewSwitch:(id)sender {
     
@@ -78,6 +79,7 @@
         if (posts) {
             // do something with the data fetched
             self.notes = posts;
+            self.filteredNotes = [self.notes mutableCopy];
             [self.tableView reloadData];
         }
         else {
@@ -88,7 +90,30 @@
     [self.refreshControl endRefreshing];
 }
 
-
+// ----- search bar functionality ---
+- (void)searchBar:searchBar textDidChange:(nonnull NSString *)searchText {
+    if(searchText.length != 0){
+       NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Note *evaluatedObject, NSDictionary *bindings){
+            return [evaluatedObject[@"caption"] containsString:searchText];
+       }];
+        
+       // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@)", searchText];
+        self.filteredNotes= [[self.notes filteredArrayUsingPredicate:predicate] mutableCopy];
+    }
+    else{
+        self.filteredNotes = [self.notes mutableCopy];
+    }
+    [self.tableView reloadData];
+}
+- (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = YES;
+}
+- (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
+    self.searchBar.showsCancelButton = NO;
+    self.searchBar.text = @"";
+    [self.searchBar resignFirstResponder];
+}
+// ---end search bar functionality --
 - (IBAction)logoutBtn:(id)sender {
     
     SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;

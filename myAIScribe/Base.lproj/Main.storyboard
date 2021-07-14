@@ -328,6 +328,7 @@
                     </navigationItem>
                     <connections>
                         <outlet property="notesViewControl" destination="C5H-0T-OTA" id="9jX-vH-7yf"/>
+                        <outlet property="searchBar" destination="ZHo-a1-kNS" id="mqj-Yx-eov"/>
                         <outlet property="tableView" destination="bp0-xg-c8S" id="FSf-Yd-Pq7"/>
                         <outlet property="titleLabel" destination="zM1-ew-ei6" id="IQZ-Jx-d8I"/>
                     </connections>
