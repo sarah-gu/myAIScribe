@@ -9,7 +9,7 @@ target 'myAIScribe' do
   pod 'Parse'
   pod 'DateTools'
   pod 'Parse/UI' 
-
+  pod 'Charts'
   target 'myAIScribeTests' do
     inherit! :search_paths
     # Pods for testing

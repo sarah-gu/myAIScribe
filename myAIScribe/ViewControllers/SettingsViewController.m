@@ -11,6 +11,9 @@
 #import "LoginViewController.h"
 
 @interface SettingsViewController ()
+@property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
+@property (weak, nonatomic) IBOutlet UILabel *joinedLabel;
 
 @end
 
@@ -18,6 +21,22 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
+    PFUser *loggedInUser = [PFUser currentUser];
+    
+    self.fullNameLabel.text = loggedInUser[@"fullName"];
+    self.usernameLabel.text = [NSString stringWithFormat:@"@%@", loggedInUser[@"username"]];
+    
+    NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
+    // Configure the input format to parse the date string
+    formatter.dateFormat = @"E MMM d HH:mm:ss Z y";
+    // Convert String to Date
+    NSDate *date =loggedInUser.createdAt;
+    // Configure output format
+    formatter.dateStyle = NSDateFormatterShortStyle;
+    formatter.timeStyle = NSDateFormatterNoStyle;
+    // Convert Date to String
+    self.joinedLabel.text = [formatter stringFromDate:date];
+    
     // Do any additional setup after loading the view.
 }
 - (IBAction)logoutBtn:(id)sender {
