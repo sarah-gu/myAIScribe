@@ -27,6 +27,7 @@
 		82D21206269CDA6E007407C2 /* SettingsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D21205269CDA6E007407C2 /* SettingsViewController.m */; };
 		82D427D8269DF32B0004044B /* CoreML.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D427D7269DF32B0004044B /* CoreML.framework */; };
 		82D427DA269DF3310004044B /* Vision.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 82D427D9269DF3310004044B /* Vision.framework */; };
+		82D427DD269F70140004044B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427DC269F70140004044B /* RegisterViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -82,6 +83,8 @@
 		82D21205269CDA6E007407C2 /* SettingsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SettingsViewController.m; sourceTree = "<group>"; };
 		82D427D7269DF32B0004044B /* CoreML.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = CoreML.framework; path = System/Library/Frameworks/CoreML.framework; sourceTree = SDKROOT; };
 		82D427D9269DF3310004044B /* Vision.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = Vision.framework; path = System/Library/Frameworks/Vision.framework; sourceTree = SDKROOT; };
+		82D427DB269F70140004044B /* RegisterViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = RegisterViewController.h; sourceTree = "<group>"; };
+		82D427DC269F70140004044B /* RegisterViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = RegisterViewController.m; sourceTree = "<group>"; };
 		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -205,6 +208,8 @@
 				82D21202269CD89D007407C2 /* DetailsViewController.m */,
 				82D21204269CDA6E007407C2 /* SettingsViewController.h */,
 				82D21205269CDA6E007407C2 /* SettingsViewController.m */,
+				82D427DB269F70140004044B /* RegisterViewController.h */,
+				82D427DC269F70140004044B /* RegisterViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -476,6 +481,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D427DD269F70140004044B /* RegisterViewController.m in Sources */,
 				82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */,
 				82D211F7269C8EAB007407C2 /* ScanViewController.m in Sources */,
 				82D211CC269C7DDE007407C2 /* main.m in Sources */,

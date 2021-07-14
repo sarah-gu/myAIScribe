@@ -1,61 +1,34 @@
 //
-//  LoginViewController.m
+//  RegisterViewController.m
 //  myAIScribe
 //
-//  Created by Sarah Wen Gu on 7/12/21.
+//  Created by Sarah Wen Gu on 7/14/21.
 //
-
-#import "LoginViewController.h"
+//@import Parse;
 #import "Parse/Parse.h"
+#import "RegisterViewController.h"
 
-@interface LoginViewController ()
+@interface RegisterViewController ()
+@property (weak, nonatomic) IBOutlet UITextField *fullNameField;
+@property (weak, nonatomic) IBOutlet UITextField *emailField;
 @property (weak, nonatomic) IBOutlet UITextField *usernameField;
 @property (weak, nonatomic) IBOutlet UITextField *passwordField;
 
 @end
 
-@implementation LoginViewController
+@implementation RegisterViewController
 
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    
-    
-    
 }
-- (IBAction)onTap:(id)sender {
-
-    [self.view endEditing:true];
-
-}
-- (IBAction)loginBtn:(id)sender {
+- (IBAction)onSignUp:(id)sender {
     
-    [self checkEmptyFields];
-    
-    NSString *username = self.usernameField.text;
-    NSString *password = self.passwordField.text;
-    
-    [PFUser logInWithUsernameInBackground:username password:password block:^(PFUser * user, NSError *  error) {
-        if (error != nil) {
-           // NSLog(@"User log in failed: %@", error.localizedDescription);
-            
-            [self failedAttempt:[NSString stringWithFormat:@"%@", ((void)(@"User log in failed: %@"), error.localizedDescription)]];
-        } else {
-            NSLog(@"User logged in successfully");
-            
-            // display view controller that needs to shown after successful login
-            
-            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
-        }
-    }];
-    
-}
-
-- (IBAction)registerUser:(id)sender {
-
     [self checkEmptyFields];
 
     PFUser *newUser = [PFUser user];
+    
+    
 
     // set user properties
     newUser.username = self.usernameField.text;
@@ -73,11 +46,14 @@
 
             // manually segue to logged in view
 
-            [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+          //  [self performSegueWithIdentifier:@"loginSegue" sender:nil];
         }
     }];
 }
-// code to eror check for empty fields / incorrect username
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:true];
+}
+
 - (void) failedAttempt:(NSString*) mes{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Failed Attempt"
                                                                                message:mes
@@ -107,7 +83,7 @@
 }
 
 - (void) checkEmptyFields{
-    if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""]){
+    if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.fullNameField.text isEqual:@""] ||  [self.emailField.text isEqual:@""]   ){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Fields"
                                                                                    message:@"You left either your username or password empty!"
                                                                             preferredStyle:(UIAlertControllerStyleAlert)];
@@ -135,7 +111,6 @@
         }];
     }
 }
-
 
 /*
 #pragma mark - Navigation
