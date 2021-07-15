@@ -27,15 +27,21 @@
     [Note postUserImage:imageToPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded){
             NSLog(@"posted image successfuly");
-            SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-            //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-            
-            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-            UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
-            [tabViewController setSelectedIndex:1];
-            appDelegate.window.rootViewController = tabViewController;
-
-
+            PFUser *currentUser = [PFUser currentUser];
+            [currentUser incrementKey:@"numNotes"];
+            //save the user with updated note count
+            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                if(!error){
+                    NSLog(@"successfully incremented notesCount");
+                    NSLog(@"%@", currentUser[@"numNotes"]);
+                    //switch the viewcontroller to a new window
+                    SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                    UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
+                    [tabViewController setSelectedIndex:1];
+                    appDelegate.window.rootViewController = tabViewController;
+                }
+            }];
         }
         else{
             NSLog(@"Error posting: %@", error.localizedDescription);
@@ -43,10 +49,10 @@
     }];
     
 }
+
 - (IBAction)logoutBtn:(id)sender {
     SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
     //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController" ];
     appDelegate.window.rootViewController = loginViewController;
@@ -54,17 +60,15 @@
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
     }];
 }
+
 - (IBAction)takeNewPic:(id)sender {
-    
     [self takePic];
 }
 
 -(void) takePic {
-    
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
-
     // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
@@ -73,21 +77,15 @@
         NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
     }
-
     [self presentViewController:imagePickerVC animated:YES completion:nil];
-    
 }
 
-// helper method
-
+// helper method for the camera
 - (void)imagePickerController:(UIImagePickerController *)picker didFinishPickingMediaWithInfo:(NSDictionary<NSString *,id> *)info {
-    
     // Get the image captured by the UIImagePickerController
     //UIImage *originalImage = info[UIImagePickerControllerOriginalImage];
     UIImage *editedImage = info[UIImagePickerControllerEditedImage];
-    
     [self.notePic setImage:editedImage];
-    
     // Dismiss UIImagePickerController to go back to your original view controller
     [self dismissViewControllerAnimated:YES completion:nil];
 }

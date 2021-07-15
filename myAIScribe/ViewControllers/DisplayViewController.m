@@ -96,7 +96,6 @@
        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Note *evaluatedObject, NSDictionary *bindings){
             return [[evaluatedObject[@"caption"] lowercaseString] containsString:[searchText lowercaseString]]; //check containsString for toLower parameter
        }];
-       // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@)", searchText];
         self.filteredNotes= [[self.notes filteredArrayUsingPredicate:predicate] mutableCopy];
     }
     else{
@@ -119,8 +118,6 @@
 - (IBAction)logoutBtn:(id)sender {
     
     SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-    //AppDelegate *appDelegate = (AppDelegate *)[UIApplication sharedApplication].delegate;
-    
     UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
     LoginViewController *loginViewController = [storyboard instantiateViewControllerWithIdentifier:@"LoginViewController" ];
     appDelegate.window.rootViewController = loginViewController;
