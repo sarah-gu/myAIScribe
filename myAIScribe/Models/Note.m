@@ -17,9 +17,10 @@
 @dynamic author;
 @dynamic caption;
 @dynamic image;
+
+//[TODO] implement like count + comment feature
 //@dynamic likeCount;
 //@dynamic commentCount;
-
 
 
 + (nonnull NSString *)parseClassName {

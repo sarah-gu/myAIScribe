@@ -14,6 +14,8 @@
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *joinedLabel;
+@property (weak, nonatomic) IBOutlet UILabel *numNotes;
+@property (weak, nonatomic) IBOutlet UILabel *numGoals;
 
 @end
 
@@ -25,7 +27,8 @@
     
     self.fullNameLabel.text = loggedInUser[@"fullName"];
     self.usernameLabel.text = [NSString stringWithFormat:@"@%@", loggedInUser[@"username"]];
-    
+    self.numNotes.text = [NSString stringWithFormat:@"%@", loggedInUser[@"numNotes"]];
+    self.numGoals.text =[NSString stringWithFormat:@"%@", loggedInUser[@"numGoals"]];
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     // Configure the input format to parse the date string
     formatter.dateFormat = @"E MMM d HH:mm:ss Z y";

@@ -94,9 +94,8 @@
 - (void)searchBar:searchBar textDidChange:(nonnull NSString *)searchText {
     if(searchText.length != 0){
        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Note *evaluatedObject, NSDictionary *bindings){
-            return [evaluatedObject[@"caption"] containsString:searchText];
+            return [evaluatedObject[@"caption"] containsString:searchText]; //check containsString for toLower parameter
        }];
-        
        // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@)", searchText];
         self.filteredNotes= [[self.notes filteredArrayUsingPredicate:predicate] mutableCopy];
     }
@@ -105,15 +104,18 @@
     }
     [self.tableView reloadData];
 }
+
 - (void)searchBarTextDidBeginEditing:(UISearchBar *)searchBar {
     self.searchBar.showsCancelButton = YES;
 }
+
 - (void)searchBarCancelButtonClicked:(UISearchBar *)searchBar {
     self.searchBar.showsCancelButton = NO;
     self.searchBar.text = @"";
     [self.searchBar resignFirstResponder];
 }
 // ---end search bar functionality --
+
 - (IBAction)logoutBtn:(id)sender {
     
     SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;

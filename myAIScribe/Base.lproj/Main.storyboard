@@ -33,7 +33,7 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
-                                    <segue destination="U9O-wD-JHx" kind="presentation" id="ceQ-5y-5BV"/>
+                                    <action selector="registerUser:" destination="BYZ-38-t0r" eventType="touchUpInside" id="zHs-ec-M1Y"/>
                                 </connections>
                             </button>
                             <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hjq-h6-mpX">
@@ -60,6 +60,7 @@
                         <outlet property="passwordField" destination="491-dP-ZZs" id="Udb-gl-OvT"/>
                         <outlet property="usernameField" destination="fQe-Mm-xvo" id="fbK-as-NjM"/>
                         <segue destination="nz0-Ye-fXL" kind="presentation" identifier="loginSegue" modalPresentationStyle="fullScreen" id="41O-2u-7yn"/>
+                        <segue destination="U9O-wD-JHx" kind="presentation" identifier="registerSegue" id="unC-Uq-SAR"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -189,7 +190,6 @@
                                 <state key="normal" title="Sign Up"/>
                                 <connections>
                                     <action selector="onSignUp:" destination="U9O-wD-JHx" eventType="touchUpInside" id="6Sh-bh-SXX"/>
-                                    <segue destination="nz0-Ye-fXL" kind="presentation" identifier="mainPageSegue" modalPresentationStyle="fullScreen" id="JnG-iu-mM1"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -206,6 +206,7 @@
                         <outlet property="fullNameField" destination="k84-kc-Uoe" id="U28-mD-xmc"/>
                         <outlet property="passwordField" destination="yiY-31-tdx" id="PeP-z2-8r5"/>
                         <outlet property="usernameField" destination="PbD-9j-F78" id="LWQ-oC-egN"/>
+                        <segue destination="nz0-Ye-fXL" kind="presentation" identifier="mainPageSegue" modalPresentationStyle="fullScreen" id="5t3-xM-58P"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="hAz-yJ-Jv8" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -215,7 +216,7 @@
                     </connections>
                 </tapGestureRecognizer>
             </objects>
-            <point key="canvasLocation" x="-2922" y="604"/>
+            <point key="canvasLocation" x="-2923.0769230769229" y="603.55450236966817"/>
         </scene>
         <!--Scan-->
         <scene sceneID="jP3-3U-bAJ">
@@ -526,6 +527,20 @@
                                         <nil key="textColor"/>
                                         <nil key="highlightedColor"/>
                                     </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="qyZ-Pf-yFI">
+                                        <rect key="frame" x="112" y="82" width="11" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
+                                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="0" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="1sj-vZ-1hA">
+                                        <rect key="frame" x="112" y="120" width="11" height="21"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                        <fontDescription key="fontDescription" type="system" pointSize="17"/>
+                                        <nil key="textColor"/>
+                                        <nil key="highlightedColor"/>
+                                    </label>
                                 </subviews>
                                 <color key="backgroundColor" red="0.78177873480000004" green="0.87796092989999996" blue="1" alpha="1" colorSpace="custom" customColorSpace="displayP3"/>
                             </view>
@@ -548,6 +563,8 @@
                     <connections>
                         <outlet property="fullNameLabel" destination="14S-ct-cwa" id="CFG-qf-VEk"/>
                         <outlet property="joinedLabel" destination="5US-th-cHW" id="faT-CH-oKV"/>
+                        <outlet property="numGoals" destination="1sj-vZ-1hA" id="soa-rd-AEn"/>
+                        <outlet property="numNotes" destination="qyZ-Pf-yFI" id="4pG-2q-WEw"/>
                         <outlet property="usernameLabel" destination="Qop-Cx-Phg" id="WQU-rb-obG"/>
                     </connections>
                 </viewController>
@@ -592,7 +609,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="JnG-iu-mM1"/>
+        <segue reference="5t3-xM-58P"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

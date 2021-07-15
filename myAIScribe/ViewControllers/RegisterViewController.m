@@ -31,9 +31,13 @@
     
 
     // set user properties
+    newUser[@"fullName"] = self.fullNameField.text;
+    newUser[@"numNotes"] = @0;
+    newUser[@"numGoals"] = @0; 
     newUser.username = self.usernameField.text;
-   // newUser.email = self.emailField.text;
+    newUser.email = self.emailField.text;
     newUser.password = self.passwordField.text;
+    NSLog(@"%@", newUser.username); 
 
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -46,7 +50,7 @@
 
             // manually segue to logged in view
 
-          //  [self performSegueWithIdentifier:@"loginSegue" sender:nil];
+            [self performSegueWithIdentifier:@"mainPageSegue" sender:nil];
         }
     }];
 }
