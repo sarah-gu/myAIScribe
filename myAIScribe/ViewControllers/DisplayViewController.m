@@ -94,7 +94,7 @@
 - (void)searchBar:searchBar textDidChange:(nonnull NSString *)searchText {
     if(searchText.length != 0){
        NSPredicate *predicate = [NSPredicate predicateWithBlock:^BOOL(Note *evaluatedObject, NSDictionary *bindings){
-            return [evaluatedObject[@"caption"] containsString:searchText]; //check containsString for toLower parameter
+            return [[evaluatedObject[@"caption"] lowercaseString] containsString:[searchText lowercaseString]]; //check containsString for toLower parameter
        }];
        // NSPredicate *predicate = [NSPredicate predicateWithFormat:@"(title CONTAINS[cd] %@)", searchText];
         self.filteredNotes= [[self.notes filteredArrayUsingPredicate:predicate] mutableCopy];
@@ -140,7 +140,7 @@
     if ([@"detailSegue"  isEqual: segue.identifier]){
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
-        Note *note = self.notes[indexPath.row];
+        Note *note = self.filteredNotes[indexPath.row];
         
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.note = note;
