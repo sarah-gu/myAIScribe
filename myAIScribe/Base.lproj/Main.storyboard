@@ -608,21 +608,31 @@
             </objects>
             <point key="canvasLocation" x="53.846153846153847" y="1718.9573459715639"/>
         </scene>
-        <!--View Controller-->
+        <!--Graph View Controller-->
         <scene sceneID="gdY-FF-flO">
             <objects>
-                <viewController id="9Ae-z3-Ybc" sceneMemberID="viewController">
+                <viewController id="9Ae-z3-Ybc" customClass="GraphViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="pg5-DW-47A">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <view contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="b6x-yW-TYB" customClass="LineChartView" customModule="Charts">
+                                <rect key="frame" x="16" y="161" width="358" height="198"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                            </view>
+                        </subviews>
                         <viewLayoutGuide key="safeArea" id="b37-bi-UeK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
                     <navigationItem key="navigationItem" id="e0Q-A6-ec3"/>
+                    <connections>
+                        <outlet property="chartView" destination="b6x-yW-TYB" id="auK-tJ-c42"/>
+                    </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pof-XI-61A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1260" y="1973"/>
+            <point key="canvasLocation" x="1260" y="1972.7488151658767"/>
         </scene>
         <!--Settings-->
         <scene sceneID="gHd-fb-Qfe">
