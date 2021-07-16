@@ -9,6 +9,7 @@
 #import "Note.h"
 #import "SceneDelegate.h"
 #import "LoginViewController.h"
+#import "SVProgressHUD.h"
 
 @interface ScanViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *notePic;
@@ -25,29 +26,36 @@
 - (IBAction)saveNote:(id)sender {
     UIImage *imageToPost = self.notePic.image;
     NSString *mySubject = self.classTag.text;
-    [Note postUserImage:imageToPost withCaption:mySubject withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
-        if (succeeded){
-            NSLog(@"posted image successfuly");
-            PFUser *currentUser = [PFUser currentUser];
-            [currentUser incrementKey:@"numNotes"];
-            //save the user with updated note count
-            [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
-                if(!error){
-                    NSLog(@"successfully incremented notesCount");
-                    NSLog(@"%@", currentUser[@"numNotes"]);
-                    //switch the viewcontroller to a new window
-                    SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
-                    UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
-                    UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
-                    [tabViewController setSelectedIndex:1];
-                    appDelegate.window.rootViewController = tabViewController;
-                }
-            }];
-        }
-        else{
-            NSLog(@"Error posting: %@", error.localizedDescription);
-        }
-    }];
+    [SVProgressHUD show];
+    dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
+        [Note postUserImage:imageToPost withCaption:mySubject withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if (succeeded){
+                NSLog(@"posted image successfuly");
+                PFUser *currentUser = [PFUser currentUser];
+                [currentUser incrementKey:@"numNotes"];
+                //save the user with updated note count
+                [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError *error) {
+                    if(!error){
+                        NSLog(@"successfully incremented notesCount");
+                        NSLog(@"%@", currentUser[@"numNotes"]);
+                        //stop the loading icon for SVProgressHUD
+                        dispatch_async(dispatch_get_main_queue(),^{
+                            [SVProgressHUD dismiss];
+                        });
+                        //switch the viewcontroller to a new window
+                        SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+                        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+                        UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
+                        [tabViewController setSelectedIndex:1];
+                        appDelegate.window.rootViewController = tabViewController;
+                    }
+                }];
+            }
+            else{
+                NSLog(@"Error posting: %@", error.localizedDescription);
+            }
+        }];
+    });
     
 }
 

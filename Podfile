@@ -10,6 +10,8 @@ target 'myAIScribe' do
   pod 'DateTools'
   pod 'Parse/UI' 
   pod 'Charts'
+  pod 'SVProgressHUD' 
+
   target 'myAIScribeTests' do
     inherit! :search_paths
     # Pods for testing

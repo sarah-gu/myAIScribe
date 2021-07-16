@@ -25,6 +25,7 @@
 
         self.window.rootViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController"];
     }
+    UIApplication.sharedApplication.delegate.self.window = self.window;
 
 }
 
