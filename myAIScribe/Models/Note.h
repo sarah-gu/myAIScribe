@@ -15,10 +15,11 @@
 
 @property (nonatomic, strong) NSString *caption;
 @property (nonatomic, strong) PFFileObject *image;
+@property (nonatomic, strong) NSString *subject; 
 //@property (nonatomic, strong) NSNumber *likeCount;
 //@property (nonatomic, strong) NSNumber *commentCount;
 
 
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCompletion: (PFBooleanResultBlock  _Nullable)completion;
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption: (NSString * _Nullable)myCaption withCompletion: (PFBooleanResultBlock  _Nullable)completion;
 @end

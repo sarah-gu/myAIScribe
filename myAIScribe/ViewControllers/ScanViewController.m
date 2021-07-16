@@ -12,6 +12,7 @@
 
 @interface ScanViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *notePic;
+@property (weak, nonatomic) IBOutlet UITextField *classTag;
 
 @end
 
@@ -23,8 +24,8 @@
 }
 - (IBAction)saveNote:(id)sender {
     UIImage *imageToPost = self.notePic.image;
-    
-    [Note postUserImage:imageToPost withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+    NSString *mySubject = self.classTag.text;
+    [Note postUserImage:imageToPost withCaption:mySubject withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
         if (succeeded){
             NSLog(@"posted image successfuly");
             PFUser *currentUser = [PFUser currentUser];

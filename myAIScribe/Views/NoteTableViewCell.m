@@ -15,8 +15,17 @@
     _note = note;
     self.photoImageView.file = note[@"image"];
     [self.photoImageView loadInBackground];
-    
-   
+    NSString *classTag = note[@"subject"];
+    NSLog(@"%@", classTag);
+    if(classTag == NULL){
+        self.subjectTag.alpha = 0;
+        self.subjectTag.backgroundColor = [UIColor whiteColor];
+    }
+    else{
+        self.subjectTag.alpha = 1;
+        self.subjectTag.backgroundColor = [UIColor lightGrayColor]; 
+        self.subjectTag.text = classTag;
+    }
     self.noteCreator.text = [NSString stringWithFormat:@"@%@", note[@"author"][@"username"]];
   
     NSDate *date = self.note.createdAt;

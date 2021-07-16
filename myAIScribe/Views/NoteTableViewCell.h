@@ -16,6 +16,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet PFImageView *photoImageView;
 @property (weak, nonatomic) IBOutlet UILabel *timePosted;
 @property (weak, nonatomic) IBOutlet UILabel *noteCreator;
+@property (weak, nonatomic) IBOutlet UILabel *subjectTag;
 
 @end
 

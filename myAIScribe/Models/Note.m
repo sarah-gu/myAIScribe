@@ -17,6 +17,7 @@
 @dynamic author;
 @dynamic caption;
 @dynamic image;
+@dynamic subject;
 
 //[TODO] implement like count + comment feature
 //@dynamic likeCount;
@@ -26,12 +27,13 @@
     return @"Note";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image  withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption:(NSString * _Nullable)mySubject withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     Note *newNote = [Note new];
     newNote.image = [self getPFFileFromImage:image];
     newNote.author = [PFUser currentUser];
     NSLog(@"saving post");
     newNote.caption = [self generateCaption:image];
+    newNote.subject = mySubject;
     //newNote.likeCount = @(0);
     //newNote.commentCount = @(0);
     //[self resizeImage:newPost.image withSize:@10];
