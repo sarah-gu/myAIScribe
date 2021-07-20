@@ -12,6 +12,7 @@
 
 @interface GraphViewController () <ChartViewDelegate>
 @property (weak, nonatomic) IBOutlet LineChartView *chartView;
+@property (weak, nonatomic) IBOutlet UISlider *mySlider;
 @property (strong, nonatomic) NSArray *notes;
 @property (strong, nonatomic) NSMutableDictionary *dict;
 @end
@@ -84,7 +85,7 @@
 //        _chartView.data = nil;
 //        return;
 //    }
-    [self setDataCount:10 range:10];
+    [self setDataCount:self.mySlider.value range:10];
 }
 
 - (void)setDataCount:(int)count range:(double)range

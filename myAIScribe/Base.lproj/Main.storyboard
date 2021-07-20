@@ -644,6 +644,10 @@
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                             </view>
+                            <slider opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" value="7" minValue="1" maxValue="30" translatesAutoresizingMaskIntoConstraints="NO" id="FBc-1Y-EET">
+                                <rect key="frame" x="14" y="457" width="362" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                            </slider>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="b37-bi-UeK"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -651,6 +655,7 @@
                     <navigationItem key="navigationItem" id="e0Q-A6-ec3"/>
                     <connections>
                         <outlet property="chartView" destination="b6x-yW-TYB" id="auK-tJ-c42"/>
+                        <outlet property="mySlider" destination="FBc-1Y-EET" id="exf-8J-XlU"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pof-XI-61A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
