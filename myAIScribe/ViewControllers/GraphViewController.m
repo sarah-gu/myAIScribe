@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *mySlider;
 @property (strong, nonatomic) NSArray *notes;
 @property (strong, nonatomic) NSMutableDictionary *dict;
+@property (weak, nonatomic) IBOutlet UILabel *daysToShow;
 @end
 
 @implementation GraphViewController
@@ -37,17 +38,9 @@
     llXAxis.labelPosition = ChartLimitLabelPositionBottomRight;
     llXAxis.valueFont = [UIFont systemFontOfSize:10.f];
     
-    //[_chartView.xAxis addLimitLine:llXAxis];
-    
     _chartView.xAxis.gridLineDashLengths = @[@10.0, @10.0];
     _chartView.xAxis.gridLineDashPhase = 0.f;
-//
-//    ChartLimitLine *ll1 = [[ChartLimitLine alloc] initWithLimit:10 label:@"Upper Limit"];
-//    ll1.lineWidth = 4.0;
-//    ll1.lineDashLengths = @[@5.f, @5.f];
-//    ll1.labelPosition = ChartLimitLabelPositionTopRight;
-//    ll1.valueFont = [UIFont systemFontOfSize:10.0];
-//
+
     ChartLimitLine *ll2 = [[ChartLimitLine alloc] initWithLimit:0 label:@"Lower Limit"];
     ll2.lineWidth = 4.0;
     ll2.lineDashLengths = @[@5.f, @5.f];
@@ -56,7 +49,6 @@
     
     ChartYAxis *leftAxis = _chartView.leftAxis;
     [leftAxis removeAllLimitLines];
-   // [leftAxis addLimitLine:ll1];
     [leftAxis addLimitLine:ll2];
     leftAxis.axisMaximum = 10.0;
     leftAxis.axisMinimum = 0.0;
@@ -69,7 +61,7 @@
     _chartView.legend.form = ChartLegendFormLine;
     
     [_chartView animateWithXAxisDuration:2.5];
-    [self setDataCount:10 range:10];
+    [self setDataCount:self.mySlider.value range:10];
 }
 
 - (void)didReceiveMemoryWarning
@@ -78,13 +70,13 @@
     // Dispose of any resources that can be recreated.
 }
 
+- (IBAction)sliderAction:(id)sender {
+    self.daysToShow.text = [NSString stringWithFormat:@"%f days ago", self.mySlider.value];
+    [self setDataCount:self.mySlider.value range:10];
+}
+
 - (void)updateChartData
 {
-//    if (self.shouldHideData)
-//    {
-//        _chartView.data = nil;
-//        return;
-//    }
     [self setDataCount:self.mySlider.value range:10];
 }
 
@@ -114,7 +106,6 @@
     }
     NSLog(@"%@", self.dict);
     [self queryPosts];
-
 }
 
 - (void) queryPosts{
