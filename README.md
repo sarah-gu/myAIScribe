@@ -98,15 +98,17 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
   - [X] Add Class tag to Notes 
   - [X] Add SVProgressHUD loading functionality for uploading notes [1 day] 
 * Week 2
+  - [X] Display graphs for history of uploading notes [1 day]
+  - [ ] Improve UI design / Autolayout constraints [2 days] 
   - [ ] Add suggested notes functionality [2 days]
-  - [ ] Display graphs for history of uploading notes [1 day]
-  - [ ] Create new pages for the Goals & reminders tabs, adding more view controllers for different tabs in the Settings page. [1-2 days]
-  - [ ] Highlight key words on paper after searching for the words in the note. [1 day]
+  - [ ] Test accuracy of CoreML (uploading new pictures handwritten vs textbook) [1/2 day] 
   
 **Stretch Goals**
 * Week 3 
-  * Integrate a visualization API to the Goals page, adding animation + customization features. [1 day]
-  * Add additional ML features of suggesting similar classes / notes based on uploaded notes and subjects. [1-2 days] 
+  - [ ] Create new pages for the Goals & reminders tabs, adding more view controllers for different tabs in the Settings page. [1-2 days]
+  - [ ] Highlight key words on paper after searching for the words in the note. [1 day] 
+  - [ ] Support multiple class tags (add button to add multiple input queries / used for when CoreML doesnt work too well) 
+  - [ ] Scrollable UI View 
   * Class object to organize notes / group by class
   * Use the text translated from CoreML to create different tabs for the Notes page, i.e filtering by Class, time created, subject.  [1 day]
 * Week 4 & 5
