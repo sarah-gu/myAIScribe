@@ -15,21 +15,27 @@
     _note = note;
     self.photoImageView.file = note[@"image"];
     [self.photoImageView loadInBackground];
-    NSString *classTag = note[@"subject"];
-    NSLog(@"%@", classTag);
-    if(classTag == nil || [classTag isEqual:@""]){
-        self.subjectTag.alpha = 0;
-        self.subjectTag.backgroundColor = [UIColor whiteColor];
-    }
-    else{
-        self.subjectTag.alpha = 1;
-        self.subjectTag.backgroundColor = [UIColor lightGrayColor];
-        self.subjectTag.text = classTag;
-    }
+    
+    [self setSubjectLabel:note[@"subject1"] toViewField:self.subjectTag1];
+    [self setSubjectLabel:note[@"subject2"] toViewField:self.subjectTag2];
+    [self setSubjectLabel:note[@"subject3"] toViewField:self.subjectTag3];
+    
     self.noteCreator.text = [NSString stringWithFormat:@"@%@", note[@"author"][@"username"]];
   
     NSDate *date = self.note.createdAt;
     self.timePosted.text =date.shortTimeAgoSinceNow;
+}
+
+-(void) setSubjectLabel:(NSString *) subjectFromNote toViewField: (UILabel *) myField {
+    if(subjectFromNote == nil || [subjectFromNote isEqual:@""]){
+        myField.alpha = 0;
+        myField.backgroundColor = [UIColor whiteColor];
+    }
+    else{
+        myField.alpha = 1;
+        myField.backgroundColor = [UIColor lightGrayColor];
+        myField.text = subjectFromNote;
+    }
 }
 
 - (void)awakeFromNib {

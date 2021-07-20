@@ -14,6 +14,8 @@
 @interface ScanViewController ()<UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UIImageView *notePic;
 @property (weak, nonatomic) IBOutlet UITextField *classTag;
+@property (weak, nonatomic) IBOutlet UITextField *classTag2;
+@property (weak, nonatomic) IBOutlet UITextField *classTag3;
 
 @end
 
@@ -21,6 +23,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.classTag2.alpha = 0;
+    self.classTag3.alpha = 0;
     [self takePic];
 }
 - (IBAction)saveNote:(id)sender {
@@ -28,7 +32,11 @@
     NSString *mySubject = self.classTag.text;
     [SVProgressHUD show];
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
-        [Note postUserImage:imageToPost withCaption:mySubject withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        [Note postUserImage:imageToPost
+               withCaption1: self.classTag.text
+               withCaption2: self.classTag2.text
+               withCaption3: self.classTag3.text
+             withCompletion: ^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded){
                 NSLog(@"posted image successfuly");
                 PFUser *currentUser = [PFUser currentUser];
@@ -72,6 +80,14 @@
 
 - (IBAction)takeNewPic:(id)sender {
     [self takePic];
+}
+
+- (IBAction)onFirstTagWritten:(id)sender {
+    self.classTag2.alpha = 1;
+}
+
+- (IBAction)onSecondTagWritten:(id)sender {
+    self.classTag3.alpha = 1;
 }
 
 -(void) takePic {

@@ -16,8 +16,9 @@
 @dynamic author;
 @dynamic caption;
 @dynamic image;
-@dynamic subject;
-
+@dynamic subject1;
+@dynamic subject2;
+@dynamic subject3;
 //[TODO] implement like count + comment feature
 //@dynamic likeCount;
 //@dynamic commentCount;
@@ -26,13 +27,15 @@
     return @"Note";
 }
 
-+ (void) postUserImage: ( UIImage * _Nullable )image withCaption:(NSString * _Nullable)mySubject withCompletion: (PFBooleanResultBlock  _Nullable)completion {
++ (void) postUserImage: ( UIImage * _Nullable )image withCaption1:(NSString * _Nullable)mySubject1 withCaption2:(NSString * _Nullable)mySubject2 withCaption3:(NSString * _Nullable)mySubject3 withCompletion: (PFBooleanResultBlock  _Nullable)completion {
     Note *newNote = [Note new];
     newNote.image = [self getPFFileFromImage:image];
     newNote.author = [PFUser currentUser];
     NSLog(@"saving post");
     newNote.caption = [self generateCaption:image];
-    newNote.subject = mySubject;
+    newNote.subject1 = mySubject1;
+    newNote.subject2 = mySubject2;
+    newNote.subject3 = mySubject3;
     //newNote.likeCount = @(0);
     //newNote.commentCount = @(0);
     //[self resizeImage:newPost.image withSize:@10];
@@ -79,9 +82,10 @@
     NSLog(@"Generated Text: %@", myRequest.results); 
     for (VNRecognizedTextObservation *observation in myRequest.results){
         VNRecognizedText *myStr = [observation topCandidates:1][0];
-        
+
         NSLog(@"%@", myStr.string);
         toRet = [NSString stringWithFormat:@"%@ %@", toRet, myStr.string];
+
 //  drawing bounding boxes over the found text (implement later)
 //        CGRect boundingBox = observation.boundingBox;
 //
@@ -97,6 +101,7 @@
 //        [self.sourceImgView.layer addSublayer:layer];
 //
     }
+    
     return toRet;
     
 }
