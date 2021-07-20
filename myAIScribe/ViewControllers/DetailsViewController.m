@@ -32,7 +32,8 @@
     self.generatedCaption.text = self.note[@"caption"];
     //disable or enable the delete post button
     PFUser *currentUser = [PFUser currentUser];
-    //NSLog(@"%@", self.note[@"author"].objectId);
+    NSLog(@"%@", self.note[@"author"]);
+  //  NSLog(@"%@", self.note[@"author"].objectId);
     if(![currentUser[@"username"] isEqual: self.note[@"author"][@"username"]]){
         self.deletePostBtn.hidden = YES;
     }
@@ -52,12 +53,12 @@
 
 - (void) deletionWarning:(NSString*) mes{
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Delete Note"
-                                                                               message:mes
-                                                                        preferredStyle:(UIAlertControllerStyleAlert)];
+                                                                   message:mes
+                                                            preferredStyle:(UIAlertControllerStyleAlert)];
     // create a cancel action
     UIAlertAction *cancelAction = [UIAlertAction actionWithTitle:@"Cancel"
-                                                        style:UIAlertActionStyleCancel
-                                                      handler:^(UIAlertAction * _Nonnull action) {
+                                                           style:UIAlertActionStyleCancel
+                                                         handler:^(UIAlertAction * _Nonnull action) {
                                                              // handle cancel response here. Doing nothing will dismiss the view.
                                                       }];
     // add the cancel action to the alertController
@@ -86,8 +87,6 @@
                                                                     }];
                                                                 }
                                                             }];
-                                                            
-                                                             // handle response here.
                                                      }];
     // add the OK action to the alert controller
     [alert addAction:okAction];

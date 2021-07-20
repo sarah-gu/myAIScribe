@@ -17,7 +17,7 @@
     [self.photoImageView loadInBackground];
     NSString *classTag = note[@"subject"];
     NSLog(@"%@", classTag);
-    if(classTag == NULL || [classTag isEqual:@""]){
+    if(classTag == nil || [classTag isEqual:@""]){
         self.subjectTag.alpha = 0;
         self.subjectTag.backgroundColor = [UIColor whiteColor];
     }
@@ -30,7 +30,6 @@
   
     NSDate *date = self.note.createdAt;
     self.timePosted.text =date.shortTimeAgoSinceNow;
-    
 }
 
 - (void)awakeFromNib {
