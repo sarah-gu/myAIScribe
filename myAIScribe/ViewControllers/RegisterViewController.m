@@ -37,7 +37,8 @@
     newUser.username = self.usernameField.text;
     newUser.email = self.emailField.text;
     newUser.password = self.passwordField.text;
-    NSLog(@"%@", newUser.username); 
+    NSLog(@"%@", newUser.username);
+    NSArray *friendArray = [[NSArray alloc] init];
 
     // call sign up function on the object
     [newUser signUpInBackgroundWithBlock:^(BOOL succeeded, NSError * error) {
@@ -47,6 +48,9 @@
            // NSLog(@"Error: %@", error.localizedDescription);
         } else {
             NSLog(@"User registered successfully");
+            [newUser addObject:friendArray forKey:@"friends"];
+            //[newUser objectForKey:@"friends"];
+            [newUser saveInBackground];
 
             // manually segue to logged in view
             [self performSegueWithIdentifier:@"mainPageSegue" sender:nil];

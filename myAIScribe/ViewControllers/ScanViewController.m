@@ -29,13 +29,15 @@
 }
 - (IBAction)saveNote:(id)sender {
     UIImage *imageToPost = self.notePic.image;
-    NSString *mySubject = self.classTag.text;
     [SVProgressHUD show];
+    NSString *sub1 =self.classTag.text;
+    NSString *sub2 = self.classTag2.text;
+    NSString *sub3 = self.classTag3.text;
     dispatch_async(dispatch_get_global_queue(DISPATCH_QUEUE_PRIORITY_DEFAULT, 0), ^{
         [Note postUserImage:imageToPost
-               withCaption1: self.classTag.text
-               withCaption2: self.classTag2.text
-               withCaption3: self.classTag3.text
+               withCaption1: sub1
+               withCaption2: sub2
+               withCaption3: sub3
              withCompletion: ^(BOOL succeeded, NSError * _Nullable error) {
             if (succeeded){
                 NSLog(@"posted image successfuly");

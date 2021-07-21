@@ -100,6 +100,7 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
 * Week 2
   - [X] Display graphs for history of uploading notes [1 day]
   - [X] Add support for up to 3 class tags [1 day] 
+  - [X] Add ProfileViewController & friending functionality [1 day]
   - [ ] Add suggested notes functionality [1 day]
   - [ ] Improve UI design / Autolayout constraints [2 days] 
   - [ ] Test accuracy of CoreML (uploading new pictures handwritten vs textbook) [1/2 day] 

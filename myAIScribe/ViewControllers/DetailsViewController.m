@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timePostedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deletePostBtn;
+@property (weak, nonatomic) IBOutlet UIButton *followFriendBtn;
 @property (weak, nonatomic) IBOutlet UITextView *generatedCaption;
 
 @end
@@ -36,15 +37,27 @@
   //  NSLog(@"%@", self.note[@"author"].objectId);
     if(![currentUser[@"username"] isEqual: self.note[@"author"][@"username"]]){
         self.deletePostBtn.hidden = YES;
-    }
-    else{
+        self.followFriendBtn.hidden = NO;
+        
+    }else{
         self.deletePostBtn.hidden = NO;
+        self.followFriendBtn.hidden = YES;
     }
     //set the name fields
     self.fullNameLabel.text = self.note[@"author"][@"fullName"];
     self.usernameLabel.text = self.note[@"author"][@"username"];
     NSDate *date = self.note.createdAt;
     self.timePostedLabel.text =date.shortTimeAgoSinceNow;
+
+}
+
+- (IBAction)followFriend:(id)sender {
+    PFUser *currentUser = [PFUser currentUser];
+    NSMutableArray *myFriends = [currentUser objectForKey:@"friends"];
+    [myFriends addObject:self.note[@"author"]];
+    currentUser[@"friends"] = myFriends;
+    [currentUser saveInBackground];
+    NSLog(@"friend added! ");
 }
 
 - (IBAction)removePost:(id)sender {

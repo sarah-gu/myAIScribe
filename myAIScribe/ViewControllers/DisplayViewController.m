@@ -71,6 +71,10 @@
     if(self.selectedID == 0){
         [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
     }
+    if(self.selectedID == 1) {
+        PFUser *currentUser = [PFUser currentUser];
+        [postQuery whereKey:@"author" containedIn:currentUser[@"friends"]];
+    }
     [postQuery includeKey:@"author"];
     postQuery.limit = 20;
 

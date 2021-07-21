@@ -30,6 +30,7 @@
 		82D427DD269F70140004044B /* RegisterViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427DC269F70140004044B /* RegisterViewController.m */; };
 		82D427E026A1DF7E0004044B /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427DF26A1DF7E0004044B /* GraphViewController.m */; };
 		82D427EB26A7874A0004044B /* SuggestedNotesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427EA26A7874A0004044B /* SuggestedNotesCollectionViewCell.m */; };
+		82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427ED26A8CAF00004044B /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -92,6 +93,8 @@
 		82D427E126A1E1210004044B /* Charts.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Charts.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D427E926A7874A0004044B /* SuggestedNotesCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SuggestedNotesCollectionViewCell.h; sourceTree = "<group>"; };
 		82D427EA26A7874A0004044B /* SuggestedNotesCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuggestedNotesCollectionViewCell.m; sourceTree = "<group>"; };
+		82D427EC26A8CAF00004044B /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		82D427ED26A8CAF00004044B /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -219,6 +222,8 @@
 				82D427DC269F70140004044B /* RegisterViewController.m */,
 				82D427DE26A1DF7E0004044B /* GraphViewController.h */,
 				82D427DF26A1DF7E0004044B /* GraphViewController.m */,
+				82D427EC26A8CAF00004044B /* ProfileViewController.h */,
+				82D427ED26A8CAF00004044B /* ProfileViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -497,6 +502,7 @@
 				82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */,
 				82D211F7269C8EAB007407C2 /* ScanViewController.m in Sources */,
 				82D211CC269C7DDE007407C2 /* main.m in Sources */,
+				82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */,
 				82D211FA269C9597007407C2 /* Note.m in Sources */,
 				82D427E026A1DF7E0004044B /* GraphViewController.m in Sources */,
 				82D211FD269C9D2C007407C2 /* DisplayViewController.m in Sources */,
