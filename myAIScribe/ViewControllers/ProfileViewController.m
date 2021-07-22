@@ -4,6 +4,7 @@
 //
 //  Created by Sarah Wen Gu on 7/21/21.
 //
+#import "DetailsViewController.h"
 #import "Note.h"
 #import "ProfileViewController.h"
 @import Parse;
@@ -21,13 +22,12 @@
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
-//    [self.collectionView registerClass:[UICollectionViewCell class] forCellWithReuseIdentifier:@"PostCollectionViewCell"];
+    
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
-        
     layout.minimumInteritemSpacing = 2.5;
     layout.minimumLineSpacing = 2.5;
     
-    CGFloat postsPerRow = 3;
+    CGFloat postsPerRow = 2;
     CGFloat itemWidth = (self.view.frame.size.width - layout.minimumInteritemSpacing * (postsPerRow - 1)) / postsPerRow;
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
@@ -36,11 +36,10 @@
     self.username.text = [PFUser currentUser][@"username"];
     NSLog(@"%@", self.username.text);
     [self.collectionView reloadData];
-    
-    
 }
+
 - (void) queryMyPosts {
-    PFQuery *query = [PFQuery queryWithClassName:@"Post"];
+    PFQuery *query = [PFQuery queryWithClassName:@"Note"];
     [query orderByDescending:@"creationDate"];
     [query whereKey:@"author" equalTo:[PFUser currentUser]];
     query.limit = 20;
@@ -61,29 +60,32 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SuggestedNotesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"PostCollectionViewCell" forIndexPath:indexPath];
-    cell.post = self.posts[indexPath.item];
-
     
+    SuggestedNotesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SuggestedNotesCollectionViewCell" forIndexPath:indexPath];
+    cell.note = self.posts[indexPath.item];
     return cell;
-    
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
-    
     return self.posts.count;
-    
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    
+    UICollectionViewCell *tappedCell = sender;
+    NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+    Note *note = self.posts[indexPath.item];
+    
+    DetailsViewController *detailsViewController = [segue destinationViewController];
+    detailsViewController.note = note;
 }
-*/
+
 
 @end
 

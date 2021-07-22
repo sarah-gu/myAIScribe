@@ -15,6 +15,7 @@
 @property (weak, nonatomic) IBOutlet UISlider *mySlider;
 @property (strong, nonatomic) NSArray *notes;
 @property (strong, nonatomic) NSMutableDictionary *dict;
+@property (strong, nonatomic) NSMutableArray *noteCount;
 @property (weak, nonatomic) IBOutlet UILabel *daysToShow;
 @end
 
@@ -23,6 +24,7 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.mySlider.continuous = NO;
     _chartView.delegate = self;
     _chartView.chartDescription.enabled = NO;
     
@@ -61,7 +63,8 @@
     _chartView.legend.form = ChartLegendFormLine;
     
     [_chartView animateWithXAxisDuration:2.5];
-    [self setDataCount:self.mySlider.value range:10];
+    [self setDataCount];
+    [self setDataForGraph: (int)self.mySlider.value];
 }
 
 - (void)didReceiveMemoryWarning
@@ -70,41 +73,24 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)sliderAction:(id)sender {
-    self.daysToShow.text = [NSString stringWithFormat:@"%f days ago", self.mySlider.value];
-    [self setDataCount:self.mySlider.value range:10];
+- (IBAction)onSliderChange:(id)sender {
+    self.daysToShow.text = [NSString stringWithFormat:@"%i days ago", (int)self.mySlider.value];
+    [self setDataForGraph:(int)self.mySlider.value];
 }
 
 - (void)updateChartData
 {
-    [self setDataCount:self.mySlider.value range:10];
+    [self setDataCount];
 }
 
-- (void)setDataCount:(int)count range:(double)range
+- (void)setDataCount
 {
-    self.dict = [[NSMutableDictionary alloc] init];
-    NSDictionary *monthEndings = @{ @1: @31, @2 : @28, @6: @30};
+    self.noteCount = [[NSMutableArray alloc] init];
     
-    NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:[NSDate date]];
-    NSInteger day = [components day];
-    NSInteger month = [components month];
-    NSInteger year = [components year];
-    NSString *dateString = [NSString stringWithFormat:@"%li-%li-%li", (long)month, (long)day, (long)year];
-    NSLog(@"%@", dateString);
-    
-    [self.dict setObject:[NSNumber numberWithInt:0] forKey:dateString];
-    
-    for(int x = 0; x < count; x++){
-        day = day - 1;
-        if(day == 0){
-            month = month - 1;
-            day = [[monthEndings objectForKey:@(month)] intValue];
-        }
-        dateString = [NSString stringWithFormat:@"%li-%li-%li", (long)month, (long)day, (long)year];
-        NSLog(@"%@", dateString);
-        [self.dict setObject:[NSNumber numberWithInt:0] forKey:dateString];
+    for(int x = 0; x < 31; x++){
+        [self.noteCount addObject:@0];
     }
-    NSLog(@"%@", self.dict);
+
     [self queryPosts];
 }
 
@@ -121,34 +107,38 @@
         if (posts) {
             // do something with the data fetched
             self.notes = posts;
-            [self setDataForGraph];
+            NSDate *todayDate = [NSDate date];
+            for (int i = 0; i < self.notes.count; i++)
+            {
+                
+                Note *myNote = [self.notes objectAtIndex:i];
+                NSDate *noteDate = myNote.createdAt;
+                int daysAgo = [self getDaysBetween:noteDate secondDate:todayDate];
+                
+                if(daysAgo < 30){
+                    self.noteCount[(daysAgo)] = [NSNumber numberWithInteger:[self.noteCount[( daysAgo)] integerValue] + 1];
+                }
+            }
         }
     }];
 }
 
--(void) setDataForGraph {
+- (int) getDaysBetween:(NSDate*) startDate secondDate:(NSDate *)endDate{
+    NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
+    NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay
+                                                        fromDate:startDate
+                                                          toDate:endDate
+                                                         options:0];
+    NSLog(@"num days: %i", (int)[components day]);
+    return (int)[components day];
+}
+ 
+-(void) setDataForGraph:(int)count {
     
-    for (int i = 0; i < self.notes.count; i++)
-    {
-        
-        Note *myNote = [self.notes objectAtIndex:i];
-        NSDate *noteDate = myNote.createdAt;
-
-        NSDateComponents *components = [[NSCalendar currentCalendar] components:NSCalendarUnitDay | NSCalendarUnitMonth | NSCalendarUnitYear fromDate:noteDate];
-        NSString *dateString = [NSString stringWithFormat:@"%li-%li-%li", (long)[components month], (long)[components day], (long)[components year]];
-        NSLog(@"%@", dateString);
-        
-        if(self.dict[dateString]){
-            self.dict[dateString] = @([self.dict[dateString] intValue] + 1);
-            NSLog(@"%@", self.dict[dateString]);
-        }
-    }
-    
+    //use days ago as the key
     NSMutableArray *values = [[NSMutableArray alloc] init];
-    int counter = 1;
-    for(id key in self.dict) {
-        [values addObject:[[ChartDataEntry alloc] initWithX:counter y:(double)[[self.dict objectForKey:key] intValue] icon: [UIImage imageNamed:@"icon"]]];
-        counter += 1;
+    for(int counter = count ; counter >= 0; counter--) {
+        [values addObject:[[ChartDataEntry alloc] initWithX:(count - counter) y:(double)[self.noteCount[counter] intValue] icon: [UIImage imageNamed:@"icon"]]];
     }
     
     NSLog(@"%@", values);

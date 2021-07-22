@@ -10,7 +10,7 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface SuggestedNotesCollectionViewCell : UICollectionViewCell
-@property (strong, nonatomic) Note *post;
+@property (strong, nonatomic) Note *note;
 @property (weak, nonatomic) IBOutlet PFImageView *myImageView;
 
 @end

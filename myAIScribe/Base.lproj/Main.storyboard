@@ -507,7 +507,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdi-id-hdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-775.38461538461536" y="2538.6255924170614"/>
+            <point key="canvasLocation" x="-811" y="2549"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AtS-bf-Yc4">
@@ -756,32 +756,33 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bbU-yI-5Hp">
-                                <rect key="frame" x="0.0" y="245" width="390" height="516"/>
+                                <rect key="frame" x="0.0" y="252" width="390" height="592"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                                <collectionViewFlowLayout key="collectionViewLayout" automaticEstimatedItemSize="YES" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SRx-aF-aWT">
-                                    <size key="itemSize" width="168" height="182"/>
+                                <collectionViewFlowLayout key="collectionViewLayout" minimumLineSpacing="10" minimumInteritemSpacing="10" id="SRx-aF-aWT">
+                                    <size key="itemSize" width="172" height="194"/>
                                     <size key="headerReferenceSize" width="0.0" height="0.0"/>
                                     <size key="footerReferenceSize" width="0.0" height="0.0"/>
                                     <inset key="sectionInset" minX="0.0" minY="0.0" maxX="0.0" maxY="0.0"/>
                                 </collectionViewFlowLayout>
                                 <cells>
-                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="Mrw-zu-sPG" customClass="SuggestedNotesCollectionViewCell">
-                                        <rect key="frame" x="0.0" y="0.0" width="168" height="182"/>
+                                    <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" reuseIdentifier="SuggestedNotesCollectionViewCell" id="Mrw-zu-sPG" customClass="SuggestedNotesCollectionViewCell">
+                                        <rect key="frame" x="0.0" y="0.0" width="172" height="194"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <collectionViewCellContentView key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" insetsLayoutMarginsFromSafeArea="NO" id="AVl-G9-CQA">
-                                            <rect key="frame" x="0.0" y="0.0" width="168" height="182"/>
+                                            <rect key="frame" x="0.0" y="0.0" width="172" height="194"/>
                                             <autoresizingMask key="autoresizingMask"/>
                                             <subviews>
                                                 <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="OxG-zu-0TO" customClass="PFImageView">
-                                                    <rect key="frame" x="0.0" y="0.0" width="168" height="182"/>
+                                                    <rect key="frame" x="0.0" y="0.0" width="169" height="194"/>
                                                     <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                                 </imageView>
                                             </subviews>
                                         </collectionViewCellContentView>
-                                        <size key="customSize" width="168" height="182"/>
+                                        <size key="customSize" width="172" height="194"/>
                                         <connections>
                                             <outlet property="myImageView" destination="OxG-zu-0TO" id="lCR-G5-DMg"/>
+                                            <segue destination="IrA-g1-3cq" kind="push" id="0Ck-xo-sft"/>
                                         </connections>
                                     </collectionViewCell>
                                 </cells>
@@ -793,6 +794,12 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="mJL-CP-KdU">
+                                <rect key="frame" x="139" y="191" width="211" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <color key="backgroundColor" systemColor="systemGray5Color"/>
+                                <state key="normal" title="+Follow"/>
+                            </button>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Followers" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="VII-0L-lgC">
                                 <rect key="frame" x="198" y="143" width="72" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -816,7 +823,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rG-mq-Z3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1210.7692307692307" y="1539.8104265402842"/>
+            <point key="canvasLocation" x="1005" y="1811"/>
         </scene>
         <!--Graph View Controller-->
         <scene sceneID="gdY-FF-flO">
@@ -835,11 +842,11 @@
                                 <rect key="frame" x="14" y="457" width="362" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <connections>
-                                    <action selector="sliderAction:" destination="9Ae-z3-Ybc" eventType="valueChanged" id="FpA-PN-Sdh"/>
+                                    <action selector="onSliderChange:" destination="9Ae-z3-Ybc" eventType="valueChanged" id="WaN-8S-jXr"/>
                                 </connections>
                             </slider>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="30 " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="vDf-Uc-hx4">
-                                <rect key="frame" x="262" y="437" width="95" height="21"/>
+                                <rect key="frame" x="286" y="437" width="71" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <fontDescription key="fontDescription" type="system" pointSize="17"/>
                                 <nil key="textColor"/>
@@ -858,7 +865,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="pof-XI-61A" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="1237" y="2288"/>
+            <point key="canvasLocation" x="1004.6153846153845" y="1157.345971563981"/>
         </scene>
         <!--Settings-->
         <scene sceneID="gHd-fb-Qfe">
@@ -882,6 +889,7 @@
     </scenes>
     <inferredMetricsTieBreakers>
         <segue reference="5t3-xM-58P"/>
+        <segue reference="0Ck-xo-sft"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>
