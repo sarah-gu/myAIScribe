@@ -5,6 +5,7 @@
 //  Created by Sarah Wen Gu on 7/21/21.
 //
 #import "DetailsViewController.h"
+#import "FollowerViewController.h"
 #import "Note.h"
 #import "ProfileViewController.h"
 @import Parse;
@@ -19,6 +20,11 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.username.text = self.currentUser[@"username"];
+    NSLog(@"%@", self.username.text);
+    if(self.currentUser == [PFUser currentUser]){
+        [self.followBtn setTitle:@"Edit Info" forState:UIControlStateNormal];
+    }
     
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
@@ -33,8 +39,6 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     [self queryMyPosts];
-    self.username.text = [PFUser currentUser][@"username"];
-    NSLog(@"%@", self.username.text);
     [self.collectionView reloadData];
 }
 
@@ -77,13 +81,18 @@
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
-    
-    UICollectionViewCell *tappedCell = sender;
-    NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-    Note *note = self.posts[indexPath.item];
-    
-    DetailsViewController *detailsViewController = [segue destinationViewController];
-    detailsViewController.note = note;
+    if([@"detailSeguefromProfile"  isEqual: segue.identifier]){
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Note *note = self.posts[indexPath.item];
+        
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.note = note;
+    }
+    else if([@"followerSegue" isEqual: segue.identifier]){
+        FollowerViewController *followerViewController = [segue destinationViewController];
+        followerViewController.currentUser = [PFUser currentUser];
+    }
 }
 
 

@@ -31,6 +31,8 @@
 		82D427E026A1DF7E0004044B /* GraphViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427DF26A1DF7E0004044B /* GraphViewController.m */; };
 		82D427EB26A7874A0004044B /* SuggestedNotesCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427EA26A7874A0004044B /* SuggestedNotesCollectionViewCell.m */; };
 		82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427ED26A8CAF00004044B /* ProfileViewController.m */; };
+		82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F026AA1EC50004044B /* FollowerViewController.m */; };
+		82D427F426AA2AC30004044B /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F326AA2AC30004044B /* FriendTableViewCell.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -95,6 +97,10 @@
 		82D427EA26A7874A0004044B /* SuggestedNotesCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SuggestedNotesCollectionViewCell.m; sourceTree = "<group>"; };
 		82D427EC26A8CAF00004044B /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		82D427ED26A8CAF00004044B /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		82D427EF26AA1EC50004044B /* FollowerViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FollowerViewController.h; sourceTree = "<group>"; };
+		82D427F026AA1EC50004044B /* FollowerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowerViewController.m; sourceTree = "<group>"; };
+		82D427F226AA2AC30004044B /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
+		82D427F326AA2AC30004044B /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -224,6 +230,8 @@
 				82D427DF26A1DF7E0004044B /* GraphViewController.m */,
 				82D427EC26A8CAF00004044B /* ProfileViewController.h */,
 				82D427ED26A8CAF00004044B /* ProfileViewController.m */,
+				82D427EF26AA1EC50004044B /* FollowerViewController.h */,
+				82D427F026AA1EC50004044B /* FollowerViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -235,6 +243,8 @@
 				82D211FF269CA092007407C2 /* NoteTableViewCell.m */,
 				82D427E926A7874A0004044B /* SuggestedNotesCollectionViewCell.h */,
 				82D427EA26A7874A0004044B /* SuggestedNotesCollectionViewCell.m */,
+				82D427F226AA2AC30004044B /* FriendTableViewCell.h */,
+				82D427F326AA2AC30004044B /* FriendTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -502,12 +512,14 @@
 				82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */,
 				82D211F7269C8EAB007407C2 /* ScanViewController.m in Sources */,
 				82D211CC269C7DDE007407C2 /* main.m in Sources */,
+				82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */,
 				82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */,
 				82D211FA269C9597007407C2 /* Note.m in Sources */,
 				82D427E026A1DF7E0004044B /* GraphViewController.m in Sources */,
 				82D211FD269C9D2C007407C2 /* DisplayViewController.m in Sources */,
 				82D211BE269C7DDD007407C2 /* SceneDelegate.m in Sources */,
 				82D21203269CD89D007407C2 /* DetailsViewController.m in Sources */,
+				82D427F426AA2AC30004044B /* FriendTableViewCell.m in Sources */,
 				82D21206269CDA6E007407C2 /* SettingsViewController.m in Sources */,
 				82D211F3269C88C0007407C2 /* LoginViewController.m in Sources */,
 				82D427EB26A7874A0004044B /* SuggestedNotesCollectionViewCell.m in Sources */,
