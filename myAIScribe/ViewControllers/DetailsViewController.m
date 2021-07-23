@@ -55,6 +55,7 @@
     PFUser *currentUser = [PFUser currentUser];
     NSMutableArray *myFriends = [currentUser objectForKey:@"friends"];
     [myFriends addObject:self.note[@"author"]];
+    NSLog(@"%@", self.note[@"author"]); 
     currentUser[@"friends"] = myFriends;
     [currentUser saveInBackground];
     NSLog(@"friend added! ");

@@ -95,7 +95,6 @@
 }
 
 - (void) queryPosts{
-
     PFQuery *postQuery = [Note query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
@@ -140,9 +139,6 @@
     for(int counter = count ; counter >= 0; counter--) {
         [values addObject:[[ChartDataEntry alloc] initWithX:(count - counter) y:(double)[self.noteCount[counter] intValue] icon: [UIImage imageNamed:@"icon"]]];
     }
-    
-    NSLog(@"%@", values);
-    NSLog(@"hello");
     
     LineChartDataSet *set1 = nil;
     if (_chartView.data.dataSetCount > 0)
