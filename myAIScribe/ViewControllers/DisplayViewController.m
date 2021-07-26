@@ -57,7 +57,7 @@
     
     self.selectedID  = (int) self.notesViewControl.selectedSegmentIndex;
     
-    NSString *titleLabels[] = {@"My Notes", @"All Notes"};
+    NSString *titleLabels[] = {@"My Notes", @"Friends Notes", @"All Notes"};
     self.titleLabel.text = titleLabels[self.notesViewControl.selectedSegmentIndex];
     [self queryPosts];
     [self.tableView reloadData];

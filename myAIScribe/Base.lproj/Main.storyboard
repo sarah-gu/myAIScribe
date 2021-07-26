@@ -450,13 +450,6 @@
                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
                                 <textInputTraits key="textInputTraits" autocapitalizationType="sentences"/>
                             </textView>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Sarah Gu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="RqC-1G-SMU">
-                                <rect key="frame" x="16" y="100" width="96" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="@sgu" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Vxb-Ed-VJt">
                                 <rect key="frame" x="120" y="100" width="123" height="21"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -479,6 +472,16 @@
                                     <action selector="followFriend:" destination="IrA-g1-3cq" eventType="touchUpInside" id="Z8k-4d-rXl"/>
                                 </connections>
                             </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="3z2-lB-nzP">
+                                <rect key="frame" x="10" y="96" width="63" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Sarah Gu">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="plH-h0-X62" kind="show" identifier="detailToProfileSegue" id="SPs-Pi-Xo3"/>
+                                </connections>
+                            </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ynY-WK-mob"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -498,7 +501,7 @@
                     <connections>
                         <outlet property="deletePostBtn" destination="Mun-Ek-CKT" id="KrT-Bh-eq9"/>
                         <outlet property="followFriendBtn" destination="L5g-qG-CgG" id="kuW-Pb-wtA"/>
-                        <outlet property="fullNameLabel" destination="RqC-1G-SMU" id="Pek-ZU-Xdc"/>
+                        <outlet property="fullNameBtn" destination="3z2-lB-nzP" id="AXU-Ft-N90"/>
                         <outlet property="generatedCaption" destination="71x-eC-cvm" id="6Av-zN-Xee"/>
                         <outlet property="largeImageView" destination="tkQ-QG-3lw" id="SiV-a3-nm8"/>
                         <outlet property="timePostedLabel" destination="LYS-nm-Rl1" id="KT0-Nx-zzb"/>
@@ -507,7 +510,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdi-id-hdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-811" y="2549"/>
+            <point key="canvasLocation" x="-740" y="2539"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AtS-bf-Yc4">
@@ -734,13 +737,6 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" text="Following" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="Wpb-SL-0vl">
-                                <rect key="frame" x="278" y="143" width="72" height="21"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                                <fontDescription key="fontDescription" type="system" pointSize="17"/>
-                                <nil key="textColor"/>
-                                <nil key="highlightedColor"/>
-                            </label>
                             <collectionView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" dataMode="prototypes" translatesAutoresizingMaskIntoConstraints="NO" id="bbU-yI-5Hp">
                                 <rect key="frame" x="0.0" y="252" width="390" height="592"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -815,6 +811,16 @@
                                 </state>
                                 <connections>
                                     <segue destination="c5u-2b-Gjk" kind="push" identifier="followerSegue" id="R1o-Bl-7Vm"/>
+                                </connections>
+                            </button>
+                            <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="nKW-ku-zuK">
+                                <rect key="frame" x="282" y="139" width="65" height="30"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <state key="normal" title="Following">
+                                    <color key="titleColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                                </state>
+                                <connections>
+                                    <segue destination="c5u-2b-Gjk" kind="push" identifier="followingSegue" id="OvZ-id-UIT"/>
                                 </connections>
                             </button>
                         </subviews>
@@ -961,8 +967,10 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
+        <segue reference="OvZ-id-UIT"/>
+        <segue reference="SPs-Pi-Xo3"/>
         <segue reference="5t3-xM-58P"/>
-        <segue reference="0Ck-xo-sft"/>
+        <segue reference="kDw-MB-51j"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="camera.fill" catalog="system" width="128" height="94"/>

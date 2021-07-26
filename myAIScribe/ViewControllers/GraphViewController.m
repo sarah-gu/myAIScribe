@@ -17,13 +17,16 @@
 @property (strong, nonatomic) NSMutableDictionary *dict;
 @property (strong, nonatomic) NSMutableArray *noteCount;
 @property (weak, nonatomic) IBOutlet UILabel *daysToShow;
+@property (nonatomic) int numDays;
 @end
 
 @implementation GraphViewController
 
-- (void)viewDidLoad {
+- (void)viewDidLoad
+{
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.numDays = 31;
     self.mySlider.continuous = NO;
     _chartView.delegate = self;
     _chartView.chartDescription.enabled = NO;
@@ -73,7 +76,8 @@
     // Dispose of any resources that can be recreated.
 }
 
-- (IBAction)onSliderChange:(id)sender {
+- (IBAction)onSliderChange:(id)sender
+{
     self.daysToShow.text = [NSString stringWithFormat:@"%i days ago", (int)self.mySlider.value];
     [self setDataForGraph:(int)self.mySlider.value];
 }
@@ -87,19 +91,20 @@
 {
     self.noteCount = [[NSMutableArray alloc] init];
     
-    for(int x = 0; x < 31; x++){
+    for(int x = 0; x < self.numDays; x++){
         [self.noteCount addObject:@0];
     }
 
     [self queryPosts];
 }
 
-- (void) queryPosts{
+- (void) queryPosts
+{
     PFQuery *postQuery = [Note query];
     [postQuery orderByDescending:@"createdAt"];
     [postQuery whereKey:@"author" equalTo:[PFUser currentUser]];
     [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
+    postQuery.limit = 30;
 
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Note *> * _Nullable posts, NSError * _Nullable error) {
@@ -114,15 +119,21 @@
                 NSDate *noteDate = myNote.createdAt;
                 int daysAgo = [self getDaysBetween:noteDate secondDate:todayDate];
                 
-                if(daysAgo < 30){
+                if(daysAgo < self.numDays) //display only past 30 days because array we created can only keep count for past 30 days
+                {
                     self.noteCount[(daysAgo)] = [NSNumber numberWithInteger:[self.noteCount[( daysAgo)] integerValue] + 1];
+                }
+                else
+                {
+                    break; //break because all future posts will also be greater than 30 days ago
                 }
             }
         }
     }];
 }
 
-- (int) getDaysBetween:(NSDate*) startDate secondDate:(NSDate *)endDate{
+- (int) getDaysBetween:(NSDate*) startDate secondDate:(NSDate *)endDate
+{
     NSCalendar *gregorianCalendar = [[NSCalendar alloc] initWithCalendarIdentifier:NSCalendarIdentifierGregorian];
     NSDateComponents *components = [gregorianCalendar components:NSCalendarUnitDay
                                                         fromDate:startDate
@@ -132,7 +143,8 @@
     return (int)[components day];
 }
  
--(void) setDataForGraph:(int)count {
+- (void) setDataForGraph:(int)count
+{
     
     //use days ago as the key
     NSMutableArray *values = [[NSMutableArray alloc] init];

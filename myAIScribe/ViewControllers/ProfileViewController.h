@@ -19,6 +19,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UIButton *followBtn;
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) PFUser *currentUser;
+
 @end
 
 NS_ASSUME_NONNULL_END

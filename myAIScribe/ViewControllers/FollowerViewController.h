@@ -10,7 +10,8 @@
 NS_ASSUME_NONNULL_BEGIN
 
 @interface FollowerViewController : UIViewController
-@property (nonatomic, strong) PFUser *currentUser;
+@property (strong, nonatomic) NSArray *myFriends;
+@property (nonatomic) BOOL isFollowing;
 @end
 
 NS_ASSUME_NONNULL_END

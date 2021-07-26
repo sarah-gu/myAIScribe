@@ -12,6 +12,8 @@
 #import "SuggestedNotesCollectionViewCell.h"
 
 @interface ProfileViewController ()<UICollectionViewDelegate, UICollectionViewDataSource>
+@property (nonatomic, strong) NSArray *myFollowers;
+@property (nonatomic, strong) NSArray *myFollowing;
 @end
 
 
@@ -20,7 +22,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
-    self.username.text = self.currentUser[@"username"];
+    self.username.text = [NSString stringWithFormat:@"@%@", self.currentUser[@"username"]];
+    self.fullName.text = self.currentUser[@"fullName"];
     NSLog(@"%@", self.username.text);
     if(self.currentUser == [PFUser currentUser]){
         [self.followBtn setTitle:@"Edit Info" forState:UIControlStateNormal];
@@ -39,15 +42,33 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     [self queryMyPosts];
+    [self queryMyFriends];
     [self.collectionView reloadData];
 }
-
+- (void) queryMyFriends {
+    PFQuery *query = [PFUser query];
+    [query includeKey:@"followers"];
+    [query includeKey:@"friends"];
+    [query whereKey:@"objectId" equalTo:self.currentUser.objectId];
+    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+        if (objects) {
+            // do something with the data fetched
+            self.myFollowers= objects[0][@"followers"];
+            self.followers.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowers.count - 1];
+            self.myFollowing = objects[0][@"friends"];
+            self.following.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowing.count - 1];
+            NSLog(@"%@", self.myFollowers);
+        }
+        else {
+            // handle error
+        }
+    }];
+}
 - (void) queryMyPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Note"];
     [query orderByDescending:@"creationDate"];
-    [query whereKey:@"author" equalTo:[PFUser currentUser]];
+    [query whereKey:@"author" equalTo:self.currentUser];
     query.limit = 20;
-
     [query includeKey:@"author"];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray<Note *> * _Nullable posts, NSError * _Nullable error) {
@@ -64,7 +85,6 @@
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    
     SuggestedNotesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"SuggestedNotesCollectionViewCell" forIndexPath:indexPath];
     cell.note = self.posts[indexPath.item];
     return cell;
@@ -89,9 +109,15 @@
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.note = note;
     }
+    else if([@"followingSegue" isEqual: segue.identifier]){
+        FollowerViewController *followerViewController = [segue destinationViewController];
+        followerViewController.myFriends = self.myFollowing;
+        followerViewController.isFollowing = NO;
+    }
     else if([@"followerSegue" isEqual: segue.identifier]){
         FollowerViewController *followerViewController = [segue destinationViewController];
-        followerViewController.currentUser = [PFUser currentUser];
+        followerViewController.myFriends = self.myFollowers;
+        followerViewController.isFollowing = YES;
     }
 }
 

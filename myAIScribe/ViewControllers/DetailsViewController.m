@@ -8,17 +8,19 @@
 #import "DetailsViewController.h"
 #import "DateTools.h"
 @import Parse;
+#import "ProfileViewController.h"
 #import "SceneDelegate.h"
 #import "DisplayViewController.h"
 
 @interface DetailsViewController ()
 @property (weak, nonatomic) IBOutlet PFImageView *largeImageView;
-@property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
+@property (weak, nonatomic) IBOutlet UIButton *fullNameBtn;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *timePostedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deletePostBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followFriendBtn;
 @property (weak, nonatomic) IBOutlet UITextView *generatedCaption;
+@property (strong, nonatomic) PFUser *noteAuthor;
 
 @end
 
@@ -34,17 +36,22 @@
     //disable or enable the delete post button
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", self.note[@"author"]);
+    self.noteAuthor =self.note[@"author"];
   //  NSLog(@"%@", self.note[@"author"].objectId);
-    if(![currentUser[@"username"] isEqual: self.note[@"author"][@"username"]]){
+    if(![currentUser[@"username"] isEqual: self.note[@"author"][@"username"]]) {
         self.deletePostBtn.hidden = YES;
         self.followFriendBtn.hidden = NO;
         
-    }else{
+    }else {
         self.deletePostBtn.hidden = NO;
         self.followFriendBtn.hidden = YES;
     }
+    if([currentUser[@"friends"] containsObject:self.note[@"author"]]) {
+        [self.followFriendBtn setTitle:@"Following" forState:UIControlStateNormal];
+        self.followFriendBtn.enabled = NO;
+    }
     //set the name fields
-    self.fullNameLabel.text = self.note[@"author"][@"fullName"];
+    [self.fullNameBtn setTitle:self.note[@"author"][@"fullName"] forState:UIControlStateNormal];
     self.usernameLabel.text = self.note[@"author"][@"username"];
     NSDate *date = self.note.createdAt;
     self.timePostedLabel.text =date.shortTimeAgoSinceNow;
@@ -58,7 +65,17 @@
     NSLog(@"%@", self.note[@"author"]); 
     currentUser[@"friends"] = myFriends;
     [currentUser saveInBackground];
-    NSLog(@"friend added! ");
+    
+    PFUser *authorOfNote = self.note[@"author"];
+    NSMutableArray *authorFollowers = [authorOfNote objectForKey:@"followers"];
+    [authorFollowers addObject:currentUser];
+    authorOfNote[@"followers"] = authorFollowers;
+    [authorOfNote saveInBackground];
+    
+    [self.followFriendBtn setTitle:@"Following" forState:UIControlStateNormal];
+    self.followFriendBtn.enabled = NO;
+   // NSLog(@"%@", authorFollowers);
+    NSLog(@"friend & follower added! ");
 }
 
 - (IBAction)removePost:(id)sender {
@@ -109,14 +126,18 @@
     }];
 }
 
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
+    if([@"detailToProfileSegue"  isEqual: segue.identifier]){        
+        ProfileViewController *profileViewController = [segue destinationViewController];
+        profileViewController.currentUser = self.noteAuthor;
+    }
 }
-*/
+
 
 @end

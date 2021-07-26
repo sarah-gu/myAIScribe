@@ -12,7 +12,7 @@
 
 @interface FollowerViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
-@property (strong, nonatomic) NSArray *myFriends;
+
 @end
 
 @implementation FollowerViewController
@@ -22,23 +22,8 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     // Do any additional setup after loading the view.
-    PFQuery *query = [PFUser query];
-    [query includeKey:@"friends"];
-    [query whereKey:@"objectId" equalTo:self.currentUser.objectId];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (objects) {
-            // do something with the data fetched
-            self.currentUser = objects[0];
-            self.myFriends = self.currentUser[@"friends"];
-            NSLog(@"%@", self.myFriends);
-            [self.tableView reloadData];
-        }
-        else {
-            // handle error
-        }
-    }];
-
-    
+    NSLog(@"my friends: %@", self.myFriends); 
+    [self.tableView reloadData];
 }
 
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath{
@@ -55,9 +40,6 @@
     return self.myFriends.count - 1;
 }
 
--(void)getUserInfo:(NSString *) myUser{
-
-}
 /*
 #pragma mark - Navigation
 
