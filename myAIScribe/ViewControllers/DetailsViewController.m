@@ -7,12 +7,13 @@
 
 #import "DetailsViewController.h"
 #import "DateTools.h"
+#import "Friends.h"
 @import Parse;
 #import "ProfileViewController.h"
 #import "SceneDelegate.h"
 #import "DisplayViewController.h"
 
-@interface DetailsViewController ()
+@interface DetailsViewController ()<UIScrollViewDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *largeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *fullNameBtn;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -20,6 +21,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *deletePostBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followFriendBtn;
 @property (weak, nonatomic) IBOutlet UITextView *generatedCaption;
+@property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) PFUser *noteAuthor;
 
 @end
@@ -29,6 +31,10 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.scrollView.delegate = self;
+    self.scrollView.minimumZoomScale = 1.0;
+    self.scrollView.maximumZoomScale = 6.0;
+    
     _note = self.note;
     self.largeImageView.file = self.note[@"image"];
     [self.largeImageView loadInBackground];
@@ -46,6 +52,7 @@
         self.deletePostBtn.hidden = NO;
         self.followFriendBtn.hidden = YES;
     }
+    NSLog(@"following arr: %@", currentUser[@"friends"]); 
     if([currentUser[@"friends"] containsObject:self.note[@"author"]]) {
         [self.followFriendBtn setTitle:@"Following" forState:UIControlStateNormal];
         self.followFriendBtn.enabled = NO;
@@ -60,18 +67,20 @@
 
 - (IBAction)followFriend:(id)sender {
     PFUser *currentUser = [PFUser currentUser];
+    PFUser *authorOfNote = self.note[@"author"];
+    
+    [Friends addNewFollowing:currentUser withFollowing:authorOfNote withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+        if(succeeded){
+            NSLog(@"new Friend created!");
+        }
+    }];
+    
     NSMutableArray *myFriends = [currentUser objectForKey:@"friends"];
     [myFriends addObject:self.note[@"author"]];
     NSLog(@"%@", self.note[@"author"]); 
     currentUser[@"friends"] = myFriends;
     [currentUser saveInBackground];
-    
-    PFUser *authorOfNote = self.note[@"author"];
-    NSMutableArray *authorFollowers = [authorOfNote objectForKey:@"followers"];
-    [authorFollowers addObject:currentUser];
-    authorOfNote[@"followers"] = authorFollowers;
-    [authorOfNote saveInBackground];
-    
+
     [self.followFriendBtn setTitle:@"Following" forState:UIControlStateNormal];
     self.followFriendBtn.enabled = NO;
    // NSLog(@"%@", authorFollowers);
@@ -124,6 +133,10 @@
     [self presentViewController:alert animated:YES completion:^{
         // optional code for what happens after the alert controller has finished presenting
     }];
+}
+
+- (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
+    return self.largeImageView; 
 }
 
 

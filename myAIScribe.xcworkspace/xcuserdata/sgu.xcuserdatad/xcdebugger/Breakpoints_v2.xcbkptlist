@@ -66,8 +66,8 @@
             filePath = "myAIScribe/ViewControllers/RegisterViewController.m"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "44"
-            endingLineNumber = "44"
+            startingLineNumber = "41"
+            endingLineNumber = "41"
             landmarkName = "-onSignUp:"
             landmarkType = "7">
             <Locations>
@@ -117,6 +117,22 @@
             startingLineNumber = "13"
             endingLineNumber = "13"
             landmarkName = "-setNote:"
+            landmarkType = "7">
+         </BreakpointContent>
+      </BreakpointProxy>
+      <BreakpointProxy
+         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
+         <BreakpointContent
+            uuid = "D238FAD7-BA85-4E12-B9D7-6691C512299F"
+            shouldBeEnabled = "No"
+            ignoreCount = "0"
+            continueAfterRunningActions = "No"
+            filePath = "myAIScribe/ViewControllers/FollowerViewController.m"
+            startingColumnNumber = "9223372036854775807"
+            endingColumnNumber = "9223372036854775807"
+            startingLineNumber = "31"
+            endingLineNumber = "31"
+            landmarkName = "-queryMyFollowing"
             landmarkType = "7">
          </BreakpointContent>
       </BreakpointProxy>

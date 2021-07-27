@@ -42,33 +42,58 @@
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
     [self queryMyPosts];
-    [self queryMyFriends];
+    [self queryFollowersCount];
+    [self queryFollowingCount];
     [self.collectionView reloadData];
 }
-- (void) queryMyFriends {
-    PFQuery *query = [PFUser query];
-    [query includeKey:@"followers"];
-    [query includeKey:@"friends"];
-    [query whereKey:@"objectId" equalTo:self.currentUser.objectId];
-    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-        if (objects) {
-            // do something with the data fetched
-            self.myFollowers= objects[0][@"followers"];
-            self.followers.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowers.count - 1];
-            self.myFollowing = objects[0][@"friends"];
-            self.following.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowing.count - 1];
-            NSLog(@"%@", self.myFollowers);
-        }
-        else {
-            // handle error
+//- (void) queryMyFriends {
+//    PFQuery *query = [PFUser query];
+//    [query includeKey:@"followers"];
+//    [query includeKey:@"friends"];
+//    [query whereKey:@"objectId" equalTo:self.currentUser.objectId];
+//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
+//        if (objects) {
+//            // do something with the data fetched
+//            self.myFollowers= objects[0][@"followers"];
+//            self.followers.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowers.count - 1];
+//            self.myFollowing = objects[0][@"friends"];
+//            self.following.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowing.count - 1];
+//            NSLog(@"%@", self.myFollowers);
+//        }
+//        else {
+//            // handle error
+//        }
+//    }];
+//}
+- (void) queryFollowingCount {
+    PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friends"];
+    [friendQuery whereKey:@"follower" equalTo:self.currentUser];
+    friendQuery.limit = 1;
+    
+    [friendQuery countObjectsInBackgroundWithBlock:^(int number, NSError * _Nullable error) {
+        if(!error) {
+            self.following.text = [NSString stringWithFormat:@"%i", number];
         }
     }];
 }
+
+- (void) queryFollowersCount {
+    PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friends"];
+    [friendQuery whereKey:@"following" equalTo:self.currentUser];
+    friendQuery.limit = 1;
+    
+    [friendQuery countObjectsInBackgroundWithBlock:^(int number, NSError * _Nullable error) {
+        if(!error) {
+            self.followers.text = [NSString stringWithFormat:@"%i", number];
+        }
+    }];
+}
+
 - (void) queryMyPosts {
     PFQuery *query = [PFQuery queryWithClassName:@"Note"];
     [query orderByDescending:@"creationDate"];
     [query whereKey:@"author" equalTo:self.currentUser];
-    query.limit = 20;
+    query.limit = 30;
     [query includeKey:@"author"];
 
     [query findObjectsInBackgroundWithBlock:^(NSArray<Note *> * _Nullable posts, NSError * _Nullable error) {
@@ -111,13 +136,13 @@
     }
     else if([@"followingSegue" isEqual: segue.identifier]){
         FollowerViewController *followerViewController = [segue destinationViewController];
-        followerViewController.myFriends = self.myFollowing;
-        followerViewController.isFollowing = NO;
+        followerViewController.currentUser = self.currentUser;
+        followerViewController.isFollowing = YES;
     }
     else if([@"followerSegue" isEqual: segue.identifier]){
         FollowerViewController *followerViewController = [segue destinationViewController];
-        followerViewController.myFriends = self.myFollowers;
-        followerViewController.isFollowing = YES;
+        followerViewController.currentUser = self.currentUser;
+        followerViewController.isFollowing = NO;
     }
 }
 

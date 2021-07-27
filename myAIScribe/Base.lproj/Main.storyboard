@@ -438,10 +438,6 @@
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkQ-QG-3lw" customClass="PFImageView">
-                                <rect key="frame" x="0.0" y="138" width="390" height="435"/>
-                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
-                            </imageView>
                             <textView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" editable="NO" text="scrollable view" textAlignment="natural" selectable="NO" translatesAutoresizingMaskIntoConstraints="NO" id="71x-eC-cvm">
                                 <rect key="frame" x="0.0" y="581" width="390" height="141"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
@@ -482,6 +478,21 @@
                                     <segue destination="plH-h0-X62" kind="show" identifier="detailToProfileSegue" id="SPs-Pi-Xo3"/>
                                 </connections>
                             </button>
+                            <scrollView clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="scaleToFill" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="gwS-HC-CfO">
+                                <rect key="frame" x="0.0" y="129" width="390" height="444"/>
+                                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                <subviews>
+                                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" fixedFrame="YES" translatesAutoresizingMaskIntoConstraints="NO" id="tkQ-QG-3lw" customClass="PFImageView">
+                                        <rect key="frame" x="0.0" y="0.0" width="390" height="444"/>
+                                        <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                                    </imageView>
+                                </subviews>
+                                <viewLayoutGuide key="contentLayoutGuide" id="non-Xa-31x"/>
+                                <viewLayoutGuide key="frameLayoutGuide" id="Ry3-sT-hzf"/>
+                                <connections>
+                                    <outlet property="delegate" destination="IrA-g1-3cq" id="B7n-Pd-1Sc"/>
+                                </connections>
+                            </scrollView>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="ynY-WK-mob"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -504,13 +515,14 @@
                         <outlet property="fullNameBtn" destination="3z2-lB-nzP" id="AXU-Ft-N90"/>
                         <outlet property="generatedCaption" destination="71x-eC-cvm" id="6Av-zN-Xee"/>
                         <outlet property="largeImageView" destination="tkQ-QG-3lw" id="SiV-a3-nm8"/>
+                        <outlet property="scrollView" destination="gwS-HC-CfO" id="lWC-tB-caZ"/>
                         <outlet property="timePostedLabel" destination="LYS-nm-Rl1" id="KT0-Nx-zzb"/>
                         <outlet property="usernameLabel" destination="Vxb-Ed-VJt" id="3IC-QZ-frF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="bdi-id-hdp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-740" y="2539"/>
+            <point key="canvasLocation" x="-740" y="2538.6255924170614"/>
         </scene>
         <!--Tab Bar Controller-->
         <scene sceneID="AtS-bf-Yc4">

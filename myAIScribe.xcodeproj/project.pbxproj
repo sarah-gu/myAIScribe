@@ -33,6 +33,7 @@
 		82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427ED26A8CAF00004044B /* ProfileViewController.m */; };
 		82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F026AA1EC50004044B /* FollowerViewController.m */; };
 		82D427F426AA2AC30004044B /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F326AA2AC30004044B /* FriendTableViewCell.m */; };
+		82D427F726B060190004044B /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F626B060190004044B /* Friends.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -101,6 +102,8 @@
 		82D427F026AA1EC50004044B /* FollowerViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FollowerViewController.m; sourceTree = "<group>"; };
 		82D427F226AA2AC30004044B /* FriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FriendTableViewCell.h; sourceTree = "<group>"; };
 		82D427F326AA2AC30004044B /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
+		82D427F526B060190004044B /* Friends.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
+		82D427F626B060190004044B /* Friends.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
 		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -254,6 +257,8 @@
 			children = (
 				82D211F8269C9597007407C2 /* Note.h */,
 				82D211F9269C9597007407C2 /* Note.m */,
+				82D427F526B060190004044B /* Friends.h */,
+				82D427F626B060190004044B /* Friends.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -512,6 +517,7 @@
 				82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */,
 				82D211F7269C8EAB007407C2 /* ScanViewController.m in Sources */,
 				82D211CC269C7DDE007407C2 /* main.m in Sources */,
+				82D427F726B060190004044B /* Friends.m in Sources */,
 				82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */,
 				82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */,
 				82D211FA269C9597007407C2 /* Note.m in Sources */,

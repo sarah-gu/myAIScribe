@@ -27,9 +27,6 @@
     [self checkEmptyFields];
 
     PFUser *newUser = [PFUser user];
-    
-    
-
     // set user properties
     newUser[@"fullName"] = self.fullNameField.text;
     newUser[@"numNotes"] = @0;
@@ -56,11 +53,12 @@
         }
     }];
 }
+
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:true];
 }
 
-- (void) failedAttempt:(NSString*) mes{
+- (void) failedAttempt:(NSString*) mes {
     UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Failed Attempt"
                                                                                message:mes
                                                                         preferredStyle:(UIAlertControllerStyleAlert)];
@@ -88,7 +86,7 @@
     }];
 }
 
-- (void) checkEmptyFields{
+- (void) checkEmptyFields {
     if ([self.usernameField.text isEqual:@""] || [self.passwordField.text isEqual:@""] || [self.fullNameField.text isEqual:@""] ||  [self.emailField.text isEqual:@""]   ){
         UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"Invalid Fields"
                                                                                    message:@"You left either your username or password empty!"
