@@ -13,7 +13,7 @@
 #import "SceneDelegate.h"
 #import "DisplayViewController.h"
 
-@interface DetailsViewController ()<UIScrollViewDelegate>
+@interface DetailsViewController ()<UIScrollViewDelegate, UITextViewDelegate>
 @property (weak, nonatomic) IBOutlet PFImageView *largeImageView;
 @property (weak, nonatomic) IBOutlet UIButton *fullNameBtn;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
@@ -31,6 +31,8 @@
 - (void)viewDidLoad {
     [super viewDidLoad];
     // Do any additional setup after loading the view.
+    self.generatedCaption.delegate = self;
+    
     self.scrollView.delegate = self;
     self.scrollView.minimumZoomScale = 1.0;
     self.scrollView.maximumZoomScale = 6.0;
@@ -43,26 +45,31 @@
     PFUser *currentUser = [PFUser currentUser];
     NSLog(@"%@", self.note[@"author"]);
     self.noteAuthor =self.note[@"author"];
-  //  NSLog(@"%@", self.note[@"author"].objectId);
-    if(![currentUser[@"username"] isEqual: self.note[@"author"][@"username"]]) {
+    NSLog(@"%@", [self.note[@"author"] objectId]);
+    if(![currentUser.objectId isEqual: [self.note[@"author"] objectId]]) {
         self.deletePostBtn.hidden = YES;
         self.followFriendBtn.hidden = NO;
+        self.generatedCaption.editable = NO;
         
     }else {
         self.deletePostBtn.hidden = NO;
         self.followFriendBtn.hidden = YES;
+        self.generatedCaption.editable = YES;
     }
-    NSLog(@"following arr: %@", currentUser[@"friends"]); 
-    if([currentUser[@"friends"] containsObject:self.note[@"author"]]) {
+   // NSLog(@"following arr: %@", currentUser[@"friends"]);
+    NSArray *keys = [currentUser[@"friends"] valueForKeyPath:@"objectId"];
+    if([keys containsObject:[self.note[@"author"] objectId]]) {
+         NSLog(@"nice");
         [self.followFriendBtn setTitle:@"Following" forState:UIControlStateNormal];
         self.followFriendBtn.enabled = NO;
     }
+    NSLog(@"array: %@, currentUser: %@", keys, self.note[@"author"][@"objectId"]);
+
     //set the name fields
     [self.fullNameBtn setTitle:self.note[@"author"][@"fullName"] forState:UIControlStateNormal];
     self.usernameLabel.text = self.note[@"author"][@"username"];
     NSDate *date = self.note.createdAt;
     self.timePostedLabel.text =date.shortTimeAgoSinceNow;
-
 }
 
 - (IBAction)followFriend:(id)sender {
@@ -133,6 +140,16 @@
     [self presentViewController:alert animated:YES completion:^{
         // optional code for what happens after the alert controller has finished presenting
     }];
+}
+
+- (void)textViewDidBeginEditing:(UITextView *)textView{
+    
+}
+
+- (void)textViewDidEndEditing:(UITextView *)textView{
+    NSLog(@"how often does this happen?");
+    self.note[@"caption"] = self.generatedCaption.text;
+    [self.note saveInBackground];
 }
 
 - (UIView *)viewForZoomingInScrollView:(UIScrollView *)scrollView{
