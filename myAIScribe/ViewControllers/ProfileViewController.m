@@ -24,8 +24,8 @@
     // Do any additional setup after loading the view.
     self.username.text = [NSString stringWithFormat:@"@%@", self.currentUser[@"username"]];
     self.fullName.text = self.currentUser[@"fullName"];
-    NSLog(@"%@", self.username.text);
-    if(self.currentUser == [PFUser currentUser]){
+  //  NSLog(@"%@, %@", [self.currentUser objectId]);
+    if([[self.currentUser objectId] isEqual:[PFUser currentUser].objectId]){
         [self.followBtn setTitle:@"Edit Info" forState:UIControlStateNormal];
     }
     
@@ -40,6 +40,14 @@
     CGFloat itemWidth = (self.view.frame.size.width - layout.minimumInteritemSpacing * (postsPerRow - 1)) / postsPerRow;
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    
+    PFUser *viewer = [PFUser currentUser];
+    NSArray *keys = [viewer[@"friends"] valueForKeyPath:@"objectId"];
+    if([keys containsObject:[self.currentUser objectId]]) {
+         NSLog(@"nice");
+        [self.followBtn setTitle:@"Following" forState:UIControlStateNormal];
+        self.followBtn.enabled = NO;
+    }
     
     [self queryMyPosts];
     [self queryFollowersCount];

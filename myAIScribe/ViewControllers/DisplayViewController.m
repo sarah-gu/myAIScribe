@@ -4,7 +4,7 @@
 //
 //  Created by Sarah Wen Gu on 7/12/21.
 //
-
+#import "ClassGroupingViewController.h"
 #import "DisplayViewController.h"
 #import "Parse/Parse.h"
 #import "NoteTableViewCell.h"
@@ -145,6 +145,10 @@
         
         DetailsViewController *detailsViewController = [segue destinationViewController];
         detailsViewController.note = note;
+    }
+    else if([@"classGroupSegue"  isEqual: segue.identifier]){
+        ClassGroupingViewController *classViewController = [segue destinationViewController];
+        classViewController.allNotes = self.filteredNotes;
     }
     
 }

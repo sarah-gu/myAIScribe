@@ -34,6 +34,9 @@
 		82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F026AA1EC50004044B /* FollowerViewController.m */; };
 		82D427F426AA2AC30004044B /* FriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F326AA2AC30004044B /* FriendTableViewCell.m */; };
 		82D427F726B060190004044B /* Friends.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427F626B060190004044B /* Friends.m */; };
+		82D427FB26B099A50004044B /* ClassGroupingTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427FA26B099A50004044B /* ClassGroupingTableViewCell.m */; };
+		82D427FE26B099D10004044B /* TableCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D427FD26B099D10004044B /* TableCollectionViewCell.m */; };
+		82D4280126B09A500004044B /* ClassGroupingViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D4280026B09A500004044B /* ClassGroupingViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -104,6 +107,12 @@
 		82D427F326AA2AC30004044B /* FriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FriendTableViewCell.m; sourceTree = "<group>"; };
 		82D427F526B060190004044B /* Friends.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = Friends.h; sourceTree = "<group>"; };
 		82D427F626B060190004044B /* Friends.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Friends.m; sourceTree = "<group>"; };
+		82D427F926B099A50004044B /* ClassGroupingTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassGroupingTableViewCell.h; sourceTree = "<group>"; };
+		82D427FA26B099A50004044B /* ClassGroupingTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassGroupingTableViewCell.m; sourceTree = "<group>"; };
+		82D427FC26B099D10004044B /* TableCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = TableCollectionViewCell.h; sourceTree = "<group>"; };
+		82D427FD26B099D10004044B /* TableCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = TableCollectionViewCell.m; sourceTree = "<group>"; };
+		82D427FF26B09A500004044B /* ClassGroupingViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassGroupingViewController.h; sourceTree = "<group>"; };
+		82D4280026B09A500004044B /* ClassGroupingViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassGroupingViewController.m; sourceTree = "<group>"; };
 		9C0FD192C67265BB48040C3D /* Pods-myAIScribe-myAIScribeUITests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.debug.xcconfig"; sourceTree = "<group>"; };
 		A8184CB78A6D93FE7071EEFD /* Pods-myAIScribeTests.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.debug.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.debug.xcconfig"; sourceTree = "<group>"; };
 		AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe_myAIScribeUITests.framework; sourceTree = BUILT_PRODUCTS_DIR; };
@@ -235,6 +244,8 @@
 				82D427ED26A8CAF00004044B /* ProfileViewController.m */,
 				82D427EF26AA1EC50004044B /* FollowerViewController.h */,
 				82D427F026AA1EC50004044B /* FollowerViewController.m */,
+				82D427FF26B09A500004044B /* ClassGroupingViewController.h */,
+				82D4280026B09A500004044B /* ClassGroupingViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -248,6 +259,10 @@
 				82D427EA26A7874A0004044B /* SuggestedNotesCollectionViewCell.m */,
 				82D427F226AA2AC30004044B /* FriendTableViewCell.h */,
 				82D427F326AA2AC30004044B /* FriendTableViewCell.m */,
+				82D427F926B099A50004044B /* ClassGroupingTableViewCell.h */,
+				82D427FA26B099A50004044B /* ClassGroupingTableViewCell.m */,
+				82D427FC26B099D10004044B /* TableCollectionViewCell.h */,
+				82D427FD26B099D10004044B /* TableCollectionViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -513,6 +528,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				82D427FE26B099D10004044B /* TableCollectionViewCell.m in Sources */,
 				82D427DD269F70140004044B /* RegisterViewController.m in Sources */,
 				82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */,
 				82D211F7269C8EAB007407C2 /* ScanViewController.m in Sources */,
@@ -520,12 +536,14 @@
 				82D427F726B060190004044B /* Friends.m in Sources */,
 				82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */,
 				82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */,
+				82D4280126B09A500004044B /* ClassGroupingViewController.m in Sources */,
 				82D211FA269C9597007407C2 /* Note.m in Sources */,
 				82D427E026A1DF7E0004044B /* GraphViewController.m in Sources */,
 				82D211FD269C9D2C007407C2 /* DisplayViewController.m in Sources */,
 				82D211BE269C7DDD007407C2 /* SceneDelegate.m in Sources */,
 				82D21203269CD89D007407C2 /* DetailsViewController.m in Sources */,
 				82D427F426AA2AC30004044B /* FriendTableViewCell.m in Sources */,
+				82D427FB26B099A50004044B /* ClassGroupingTableViewCell.m in Sources */,
 				82D21206269CDA6E007407C2 /* SettingsViewController.m in Sources */,
 				82D211F3269C88C0007407C2 /* LoginViewController.m in Sources */,
 				82D427EB26A7874A0004044B /* SuggestedNotesCollectionViewCell.m in Sources */,
