@@ -141,9 +141,21 @@
         // optional code for what happens after the alert controller has finished presenting
     }];
 }
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:true];
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect labelsFrame = self.generatedCaption.frame;
+        labelsFrame.origin.y += 200;
+        self.generatedCaption.frame = labelsFrame;
+    }];
+}
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
-    
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect labelsFrame = self.generatedCaption.frame;
+        labelsFrame.origin.y -= 200;
+        self.generatedCaption.frame = labelsFrame;
+    }];
 }
 
 - (void)textViewDidEndEditing:(UITextView *)textView{

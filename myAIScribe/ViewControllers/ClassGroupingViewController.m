@@ -61,14 +61,15 @@
 }
 
 -(void) classifyNote: (Note *)myNote withSubject: (NSString *)subject {
-    if([self.idxToClassTracker containsObject:[myNote[subject] lowercaseString]]) {
-        int classIdx = (int)[self.idxToClassTracker indexOfObject:[myNote[subject] lowercaseString]];
+    NSString *currentClass = [[myNote[subject] stringByTrimmingCharactersInSet:[NSCharacterSet whitespaceCharacterSet]] lowercaseString];
+    if([self.idxToClassTracker containsObject:currentClass]) {
+        int classIdx = (int)[self.idxToClassTracker indexOfObject:currentClass];
         [self.myClasses[classIdx] addObject: myNote];
     }
     else{
         NSMutableArray *newClass = [@[myNote] mutableCopy];
         [self.myClasses addObject:newClass];
-        [self.idxToClassTracker addObject:myNote[subject]];
+        [self.idxToClassTracker addObject:currentClass];
     }
 }
 /*
