@@ -16,6 +16,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *classTag;
 @property (weak, nonatomic) IBOutlet UITextField *classTag2;
 @property (weak, nonatomic) IBOutlet UITextField *classTag3;
+@property (nonatomic) BOOL animateLabel;
 
 @end
 
@@ -25,6 +26,7 @@
     // Do any additional setup after loading the view.
     self.classTag2.alpha = 0;
     self.classTag3.alpha = 0;
+    self.animateLabel = NO;
     [self takePic];
 }
 - (IBAction)saveNote:(id)sender {
@@ -79,6 +81,25 @@
     [PFUser logOutInBackgroundWithBlock:^(NSError * _Nullable error) {
     }];
 }
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:true];
+    if(self.animateLabel){
+        [UIView animateWithDuration:0.5 animations:^{
+            CGRect labelsFrame = self.classTag.frame;
+            labelsFrame.origin.y += 200;
+            self.classTag.frame = labelsFrame;
+            
+            labelsFrame = self.classTag2.frame;
+            labelsFrame.origin.y += 200;
+            self.classTag2.frame = labelsFrame;
+            
+            labelsFrame = self.classTag3.frame;
+            labelsFrame.origin.y += 200;
+            self.classTag3.frame = labelsFrame;
+        }];
+        self.animateLabel = NO;
+    }
+}
 
 - (IBAction)takeNewPic:(id)sender {
     [self takePic];
@@ -86,9 +107,23 @@
 
 - (IBAction)onFirstTagWritten:(id)sender {
     self.classTag2.alpha = 1;
+    [UIView animateWithDuration:0.5 animations:^{
+        CGRect labelsFrame = self.classTag.frame;
+        labelsFrame.origin.y -= 200;
+        self.classTag.frame = labelsFrame;
+        
+        CGRect labelsFrame2 = self.classTag2.frame;
+        labelsFrame2.origin.y -= 200;
+        self.classTag2.frame = labelsFrame2;
+        
+        CGRect labelsFrame3 = self.classTag3.frame;
+        labelsFrame3.origin.y -= 200;
+        self.classTag3.frame = labelsFrame3;
+    }];
+    self.animateLabel = YES;
 }
 
-- (IBAction)onSecondTagWritten:(id)sender {
+- (IBAction)secondTagWritten:(id)sender {
     self.classTag3.alpha = 1;
 }
 

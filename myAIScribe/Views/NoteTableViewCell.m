@@ -8,6 +8,7 @@
 #import "NoteTableViewCell.h"
 #import "Note.h"
 #import "DateTools.h"
+#import <QuartzCore/QuartzCore.h>
 
 @implementation NoteTableViewCell
 
@@ -21,7 +22,14 @@
     [self setSubjectLabel:note[@"subject3"] toViewField:self.subjectTag3];
     
     self.noteCreator.text = [NSString stringWithFormat:@"@%@", note[@"author"][@"username"]];
-  
+    self.fullName.text = [NSString stringWithFormat:@"%@", note[@"author"][@"fullName"]];
+    self.subjectTag1.layer.masksToBounds = YES;
+    self.subjectTag1.layer.cornerRadius = 10;
+    
+    self.subjectTag2.layer.masksToBounds = YES;
+    self.subjectTag2.layer.cornerRadius = 10;
+    self.subjectTag3.layer.masksToBounds = YES;
+    self.subjectTag3.layer.cornerRadius = 10;
     NSDate *date = self.note.createdAt;
     self.timePosted.text =date.shortTimeAgoSinceNow;
 }
@@ -33,7 +41,8 @@
     }
     else{
         myField.alpha = 1;
-        myField.backgroundColor = [UIColor lightGrayColor];
+       // myField.backgroundColor = [UIColor lightGrayColor];
+        myField.backgroundColor = [[UIColor alloc] initWithRed: 68.0/255.0 green: 44.0/255.0 blue: 46.0/255.0 alpha: 1.0];
         myField.text = subjectFromNote;
     }
 }

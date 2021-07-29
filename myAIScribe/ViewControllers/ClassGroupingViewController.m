@@ -51,10 +51,10 @@
         if(![myNote[@"subject1"] isEqual:@""]){
             [self classifyNote:myNote withSubject:@"subject1"];
         }
-        else if(![myNote[@"subject1"] isEqual:@""] && ![myNote[@"subject2"] isEqual:@""]){
+        if(![myNote[@"subject1"] isEqual:@""] && ![myNote[@"subject2"] isEqual:@""]){
             [self classifyNote:myNote withSubject:@"subject2"];
         }
-        else if(![myNote[@"subject1"] isEqual:@""] && ![myNote[@"subject2"] isEqual:@""] && ![myNote[@"subject3"] isEqual:@""] ) {
+        if(![myNote[@"subject1"] isEqual:@""] && ![myNote[@"subject2"] isEqual:@""] && ![myNote[@"subject3"] isEqual:@""] ) {
             [self classifyNote:myNote withSubject:@"subject3"];
         }
     }

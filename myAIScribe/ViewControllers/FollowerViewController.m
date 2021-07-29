@@ -13,6 +13,7 @@
 
 @interface FollowerViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
+@property (weak, nonatomic) IBOutlet UILabel *titleLabel;
 @property (strong, nonatomic) NSArray *myFriends;
 @end
 
@@ -23,6 +24,13 @@
     
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
+    
+    if(!self.isFollowing){
+        self.titleLabel.text = @"Following";
+    }
+    else{
+        self.titleLabel.text = @"Followers";
+    }
     
     [self queryMyFollowing];
     [self.tableView reloadData];

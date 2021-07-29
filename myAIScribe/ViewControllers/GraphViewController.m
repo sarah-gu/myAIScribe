@@ -65,6 +65,9 @@
     
     _chartView.legend.form = ChartLegendFormLine;
     
+    self.mySlider.value = 5;
+    self.daysToShow.text =[NSString stringWithFormat:@"%i days ago", (int)self.mySlider.value];
+    
     [_chartView animateWithXAxisDuration:2.5];
     [self setDataCount];
     [self setDataForGraph: (int)self.mySlider.value];

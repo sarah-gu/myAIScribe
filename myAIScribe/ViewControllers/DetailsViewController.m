@@ -23,6 +23,7 @@
 @property (weak, nonatomic) IBOutlet UITextView *generatedCaption;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) PFUser *noteAuthor;
+@property (nonatomic) BOOL animateView;
 
 @end
 
@@ -67,9 +68,10 @@
 
     //set the name fields
     [self.fullNameBtn setTitle:self.note[@"author"][@"fullName"] forState:UIControlStateNormal];
-    self.usernameLabel.text = self.note[@"author"][@"username"];
+    self.usernameLabel.text =  [NSString stringWithFormat:@"@%@", self.note[@"author"][@"username"]];
     NSDate *date = self.note.createdAt;
     self.timePostedLabel.text =date.shortTimeAgoSinceNow;
+    self.animateView = NO;
 }
 
 - (IBAction)followFriend:(id)sender {
@@ -143,11 +145,14 @@
 }
 - (IBAction)onTap:(id)sender {
     [self.view endEditing:true];
-    [UIView animateWithDuration:0.5 animations:^{
-        CGRect labelsFrame = self.generatedCaption.frame;
-        labelsFrame.origin.y += 200;
-        self.generatedCaption.frame = labelsFrame;
-    }];
+    if(self.animateView){
+        [UIView animateWithDuration:0.5 animations:^{
+            CGRect labelsFrame = self.generatedCaption.frame;
+            labelsFrame.origin.y += 200;
+            self.generatedCaption.frame = labelsFrame;
+        }];
+        self.animateView = NO;
+    }
 }
 
 - (void)textViewDidBeginEditing:(UITextView *)textView{
@@ -155,6 +160,7 @@
         CGRect labelsFrame = self.generatedCaption.frame;
         labelsFrame.origin.y -= 200;
         self.generatedCaption.frame = labelsFrame;
+        self.animateView= YES;
     }];
 }
 
