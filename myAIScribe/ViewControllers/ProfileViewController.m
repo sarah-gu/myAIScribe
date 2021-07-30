@@ -54,25 +54,7 @@
     [self queryFollowingCount];
     [self.collectionView reloadData];
 }
-//- (void) queryMyFriends {
-//    PFQuery *query = [PFUser query];
-//    [query includeKey:@"followers"];
-//    [query includeKey:@"friends"];
-//    [query whereKey:@"objectId" equalTo:self.currentUser.objectId];
-//    [query findObjectsInBackgroundWithBlock:^(NSArray * _Nullable objects, NSError * _Nullable error) {
-//        if (objects) {
-//            // do something with the data fetched
-//            self.myFollowers= objects[0][@"followers"];
-//            self.followers.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowers.count - 1];
-//            self.myFollowing = objects[0][@"friends"];
-//            self.following.text = [NSString stringWithFormat:@"%lu", (unsigned long)self.myFollowing.count - 1];
-//            NSLog(@"%@", self.myFollowers);
-//        }
-//        else {
-//            // handle error
-//        }
-//    }];
-//}
+
 - (void) queryFollowingCount {
     PFQuery *friendQuery = [PFQuery queryWithClassName:@"Friends"];
     [friendQuery whereKey:@"follower" equalTo:self.currentUser];

@@ -7,6 +7,7 @@
 
 #import "ClassGroupingViewController.h"
 #import "ClassGroupingTableViewCell.h"
+#import "ClassDetailViewController.h"
 #import "Note.h"
 @import Parse;
 
@@ -42,10 +43,6 @@
     return self.myClasses.count;
 }
 
-- (CGFloat)tableView:(UITableView *)tableView heightForRowAtIndexPath:(NSIndexPath *)indexPath {
-    return 200;
-}
-
 -(void) getClassesFromNotes {
     for(id myNote in self.allNotes){
         if(![myNote[@"subject1"] isEqual:@""]){
@@ -72,14 +69,20 @@
         [self.idxToClassTracker addObject:currentClass];
     }
 }
-/*
+
 #pragma mark - Navigation
 
 // In a storyboard-based application, you will often want to do a little preparation before navigation
 - (void)prepareForSegue:(UIStoryboardSegue *)segue sender:(id)sender {
-    // Get the new view controller using [segue destinationViewController].
-    // Pass the selected object to the new view controller.
+    if ([@"classDetailSegue"  isEqual: segue.identifier]){
+        UITableViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
+        ClassDetailViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.posts = self.myClasses[indexPath.row];
+        NSLog(@"%@", detailsViewController.posts); 
+        detailsViewController.classLabel.text = self.idxToClassTracker[indexPath.row];
+    }
 }
-*/
+
 
 @end

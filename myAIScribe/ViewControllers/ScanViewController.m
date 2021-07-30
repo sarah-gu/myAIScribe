@@ -88,6 +88,7 @@
             CGRect labelsFrame = self.classTag.frame;
             labelsFrame.origin.y += 200;
             self.classTag.frame = labelsFrame;
+            [self.classTag layoutIfNeeded];
             
             labelsFrame = self.classTag2.frame;
             labelsFrame.origin.y += 200;
@@ -107,19 +108,21 @@
 
 - (IBAction)onFirstTagWritten:(id)sender {
     self.classTag2.alpha = 1;
-    [UIView animateWithDuration:0.5 animations:^{
-        CGRect labelsFrame = self.classTag.frame;
-        labelsFrame.origin.y -= 200;
-        self.classTag.frame = labelsFrame;
-        
-        CGRect labelsFrame2 = self.classTag2.frame;
-        labelsFrame2.origin.y -= 200;
-        self.classTag2.frame = labelsFrame2;
-        
-        CGRect labelsFrame3 = self.classTag3.frame;
-        labelsFrame3.origin.y -= 200;
-        self.classTag3.frame = labelsFrame3;
-    }];
+    if(!self.animateLabel){
+        [UIView animateWithDuration:0.5 animations:^{
+            CGRect labelsFrame = self.classTag.frame;
+            labelsFrame.origin.y -= 200;
+            self.classTag.frame = labelsFrame;
+            
+            CGRect labelsFrame2 = self.classTag2.frame;
+            labelsFrame2.origin.y -= 200;
+            self.classTag2.frame = labelsFrame2;
+            
+            CGRect labelsFrame3 = self.classTag3.frame;
+            labelsFrame3.origin.y -= 200;
+            self.classTag3.frame = labelsFrame3;
+        }];
+    }
     self.animateLabel = YES;
 }
 

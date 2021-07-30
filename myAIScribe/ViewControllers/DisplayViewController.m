@@ -14,7 +14,7 @@
 #import "SceneDelegate.h"
 #import "DetailsViewController.h"
 
-@interface DisplayViewController () <UITableViewDelegate, UITableViewDataSource>
+@interface DisplayViewController () <UITableViewDelegate, UITableViewDataSource, UISearchBarDelegate>
 
 @property (weak, nonatomic) IBOutlet UISearchBar *searchBar;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;

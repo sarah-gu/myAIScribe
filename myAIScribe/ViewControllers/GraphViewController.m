@@ -70,7 +70,7 @@
     
     [_chartView animateWithXAxisDuration:2.5];
     [self setDataCount];
-    [self setDataForGraph: (int)self.mySlider.value];
+    
 }
 
 - (void)didReceiveMemoryWarning
@@ -125,6 +125,7 @@
                 if(daysAgo < self.numDays) //display only past 30 days because array we created can only keep count for past 30 days
                 {
                     self.noteCount[(daysAgo)] = [NSNumber numberWithInteger:[self.noteCount[( daysAgo)] integerValue] + 1];
+                    [self setDataForGraph: (int)self.mySlider.value];
                 }
                 else
                 {

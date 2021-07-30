@@ -148,7 +148,7 @@
     if(self.animateView){
         [UIView animateWithDuration:0.5 animations:^{
             CGRect labelsFrame = self.generatedCaption.frame;
-            labelsFrame.origin.y += 200;
+            labelsFrame.origin.y += 250;
             self.generatedCaption.frame = labelsFrame;
         }];
         self.animateView = NO;
@@ -158,7 +158,7 @@
 - (void)textViewDidBeginEditing:(UITextView *)textView{
     [UIView animateWithDuration:0.5 animations:^{
         CGRect labelsFrame = self.generatedCaption.frame;
-        labelsFrame.origin.y -= 200;
+        labelsFrame.origin.y -= 250;
         self.generatedCaption.frame = labelsFrame;
         self.animateView= YES;
     }];

@@ -10,6 +10,9 @@
 		5331A2314FDA6FC51AB0E801 /* Pods_myAIScribeTests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = B91E246E23C9C440A89F2F13 /* Pods_myAIScribeTests.framework */; };
 		75A5E8CF9E38FEA6B6F52446 /* Pods_myAIScribe.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 112978AC55B8E02A5567FED2 /* Pods_myAIScribe.framework */; };
 		78F465146CE0E0BCFA92A199 /* Pods_myAIScribe_myAIScribeUITests.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = AE681A72466F7070C7075D7A /* Pods_myAIScribe_myAIScribeUITests.framework */; };
+		82CF138D26B494E800301BE1 /* FindFriendsViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF138C26B494E800301BE1 /* FindFriendsViewController.m */; };
+		82CF139026B4966200301BE1 /* FindFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF138F26B4966200301BE1 /* FindFriendTableViewCell.m */; };
+		82CF139326B4ABD300301BE1 /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF139226B4ABD300301BE1 /* ClassDetailViewController.m */; };
 		82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211BA269C7DDD007407C2 /* AppDelegate.m */; };
 		82D211BE269C7DDD007407C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211BD269C7DDD007407C2 /* SceneDelegate.m */; };
 		82D211C4269C7DDD007407C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D211C2269C7DDD007407C2 /* Main.storyboard */; };
@@ -60,6 +63,12 @@
 		0FF421D2F57FF04A0F3FD379 /* Pods-myAIScribe-myAIScribeUITests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribe-myAIScribeUITests.release.xcconfig"; path = "Target Support Files/Pods-myAIScribe-myAIScribeUITests/Pods-myAIScribe-myAIScribeUITests.release.xcconfig"; sourceTree = "<group>"; };
 		112978AC55B8E02A5567FED2 /* Pods_myAIScribe.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_myAIScribe.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		51ADCE6965150EF6AB76D9A6 /* Pods-myAIScribeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-myAIScribeTests.release.xcconfig"; path = "Target Support Files/Pods-myAIScribeTests/Pods-myAIScribeTests.release.xcconfig"; sourceTree = "<group>"; };
+		82CF138B26B494E800301BE1 /* FindFriendsViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindFriendsViewController.h; sourceTree = "<group>"; };
+		82CF138C26B494E800301BE1 /* FindFriendsViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindFriendsViewController.m; sourceTree = "<group>"; };
+		82CF138E26B4966200301BE1 /* FindFriendTableViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = FindFriendTableViewCell.h; sourceTree = "<group>"; };
+		82CF138F26B4966200301BE1 /* FindFriendTableViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = FindFriendTableViewCell.m; sourceTree = "<group>"; };
+		82CF139126B4ABD300301BE1 /* ClassDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailViewController.h; sourceTree = "<group>"; };
+		82CF139226B4ABD300301BE1 /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		82D211B6269C7DDD007407C2 /* myAIScribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAIScribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D211B9269C7DDD007407C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82D211BA269C7DDD007407C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -246,6 +255,10 @@
 				82D427F026AA1EC50004044B /* FollowerViewController.m */,
 				82D427FF26B09A500004044B /* ClassGroupingViewController.h */,
 				82D4280026B09A500004044B /* ClassGroupingViewController.m */,
+				82CF138B26B494E800301BE1 /* FindFriendsViewController.h */,
+				82CF138C26B494E800301BE1 /* FindFriendsViewController.m */,
+				82CF139126B4ABD300301BE1 /* ClassDetailViewController.h */,
+				82CF139226B4ABD300301BE1 /* ClassDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -263,6 +276,8 @@
 				82D427FA26B099A50004044B /* ClassGroupingTableViewCell.m */,
 				82D427FC26B099D10004044B /* TableCollectionViewCell.h */,
 				82D427FD26B099D10004044B /* TableCollectionViewCell.m */,
+				82CF138E26B4966200301BE1 /* FindFriendTableViewCell.h */,
+				82CF138F26B4966200301BE1 /* FindFriendTableViewCell.m */,
 			);
 			path = Views;
 			sourceTree = "<group>";
@@ -535,6 +550,8 @@
 				82D211CC269C7DDE007407C2 /* main.m in Sources */,
 				82D427F726B060190004044B /* Friends.m in Sources */,
 				82D427F126AA1EC50004044B /* FollowerViewController.m in Sources */,
+				82CF138D26B494E800301BE1 /* FindFriendsViewController.m in Sources */,
+				82CF139026B4966200301BE1 /* FindFriendTableViewCell.m in Sources */,
 				82D427EE26A8CAF00004044B /* ProfileViewController.m in Sources */,
 				82D4280126B09A500004044B /* ClassGroupingViewController.m in Sources */,
 				82D211FA269C9597007407C2 /* Note.m in Sources */,
@@ -548,6 +565,7 @@
 				82D211F3269C88C0007407C2 /* LoginViewController.m in Sources */,
 				82D427EB26A7874A0004044B /* SuggestedNotesCollectionViewCell.m in Sources */,
 				82D21200269CA092007407C2 /* NoteTableViewCell.m in Sources */,
+				82CF139326B4ABD300301BE1 /* ClassDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
