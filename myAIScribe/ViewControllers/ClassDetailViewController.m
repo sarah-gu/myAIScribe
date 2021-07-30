@@ -9,9 +9,10 @@
 #import "DetailsViewController.h"
 #import "Note.h"
 @import Parse;
-#import "SuggestedNotesCollectionViewCell.h"
+#import "ClassDetailCollectionViewCell.h"
 
 @interface ClassDetailViewController () <UICollectionViewDelegate, UICollectionViewDataSource>
+@property (weak, nonatomic) IBOutlet UILabel *myClassLabel;
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @end
 
@@ -22,6 +23,8 @@
     // Do any additional setup after loading the view.
     self.collectionView.dataSource = self;
     self.collectionView.delegate = self;
+    
+    self.myClassLabel.text = self.classLabel; 
 
     UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
     layout.minimumInteritemSpacing = 2.5;
@@ -32,12 +35,14 @@
     CGFloat itemHeight = itemWidth;
     layout.itemSize = CGSizeMake(itemWidth, itemHeight);
     
+    NSLog(@"%@", self.posts);
     [self.collectionView reloadData];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
-    SuggestedNotesCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassDetailCell" forIndexPath:indexPath];
+    ClassDetailCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"ClassDetailCell" forIndexPath:indexPath];
     cell.note = self.posts[indexPath.item];
+    NSLog(@"POSTS: %@", self.posts[0]);
     return cell;
 }
 
@@ -53,14 +58,14 @@
     // Get the new view controller using [segue destinationViewController].
     // Pass the selected object to the new view controller.
     
-//    if([@"detailSeguefromGroup"  isEqual: segue.identifier]){
-//        UICollectionViewCell *tappedCell = sender;
-//        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
-//        Note *note = self.posts[indexPath.item];
-//        
-//        DetailsViewController *detailsViewController = [segue destinationViewController];
-//        detailsViewController.note = note;
-//    }
+    if([@"detailSeguefromGroup"  isEqual: segue.identifier]){
+        UICollectionViewCell *tappedCell = sender;
+        NSIndexPath *indexPath = [self.collectionView indexPathForCell:tappedCell];
+        Note *note = self.posts[indexPath.item];
+
+        DetailsViewController *detailsViewController = [segue destinationViewController];
+        detailsViewController.note = note;
+    }
 }
 
 

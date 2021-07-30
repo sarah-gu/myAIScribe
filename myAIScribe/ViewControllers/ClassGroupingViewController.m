@@ -78,9 +78,10 @@
         UITableViewCell *tappedCell = sender;
         NSIndexPath *indexPath = [self.tableView indexPathForCell:tappedCell];
         ClassDetailViewController *detailsViewController = [segue destinationViewController];
-        detailsViewController.posts = self.myClasses[indexPath.row];
-        NSLog(@"%@", detailsViewController.posts); 
-        detailsViewController.classLabel.text = self.idxToClassTracker[indexPath.row];
+        NSArray *allNotes = self.myClasses[indexPath.row];
+        detailsViewController.posts = allNotes;
+      //  NSLog(@"%@", detailsViewController.posts); 
+        detailsViewController.classLabel = self.idxToClassTracker[indexPath.row];
     }
 }
 

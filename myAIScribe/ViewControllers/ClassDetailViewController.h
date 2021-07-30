@@ -11,7 +11,7 @@ NS_ASSUME_NONNULL_BEGIN
 
 @interface ClassDetailViewController : UIViewController
 @property (strong, nonatomic) NSArray *posts;
-@property (weak, nonatomic) IBOutlet UILabel *classLabel;
+@property (weak, nonatomic) NSString *classLabel;
 @end
 
 NS_ASSUME_NONNULL_END
