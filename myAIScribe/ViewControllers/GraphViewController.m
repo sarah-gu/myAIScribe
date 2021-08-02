@@ -166,7 +166,7 @@
     }
     else
     {
-        set1 = [[LineChartDataSet alloc] initWithEntries:values label:@"DataSet 1"];
+        set1 = [[LineChartDataSet alloc] initWithEntries:values label:@"Number of Notes"];
         
         set1.drawIconsEnabled = NO;
         
@@ -183,8 +183,8 @@
         set1.formSize = 15.0;
         
         NSArray *gradientColors = @[
-                                    (id)[ChartColorTemplates colorFromString:@"#00ff0000"].CGColor,
-                                    (id)[ChartColorTemplates colorFromString:@"#ffff0000"].CGColor
+                                    (id)[ChartColorTemplates colorFromString:@"#00000000"].CGColor,
+                                    (id)[ChartColorTemplates colorFromString:@"#00000000"].CGColor
                                     ];
         CGGradientRef gradient = CGGradientCreateWithColors(nil, (CFArrayRef)gradientColors, nil);
         
