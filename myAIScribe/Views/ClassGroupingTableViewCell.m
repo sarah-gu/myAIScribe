@@ -13,19 +13,40 @@
 - (void)awakeFromNib {
     [super awakeFromNib];
     // Initialization code
+
+}
+
+-(void) updateNoteCells {
+    // Initialization code
     self.collectionView.delegate = self;
     self.collectionView.dataSource = self;
     
-    [self.collectionView reloadData]; 
+    UICollectionViewFlowLayout *layout = (UICollectionViewFlowLayout *) self.collectionView.collectionViewLayout;
+    layout.minimumInteritemSpacing = 0;
+    layout.minimumLineSpacing = 2;
+    
+    CGFloat postersPerLine = 3;
+    CGFloat itemWidth = (self.collectionView.frame.size.width / postersPerLine);
+    CGFloat itemHeight = itemWidth;
+    layout.itemSize = CGSizeMake(itemWidth, itemHeight);
+    
+    [self.collectionView reloadData];
 }
 
 - (__kindof UICollectionViewCell *)collectionView:(UICollectionView *)collectionView cellForItemAtIndexPath:(NSIndexPath *)indexPath {
     TableCollectionViewCell *cell = [collectionView dequeueReusableCellWithReuseIdentifier:@"TableCollectionViewCell" forIndexPath:indexPath];
-    cell.note = self.myNotes[indexPath.item];
+    Note *note = self.myNotes[indexPath.item];
+    PFFileObject *image = note[@"image"];
+    cell.noteImage.file = image;
+    [cell.noteImage loadInBackground];
+//    NSURL *imageURL = [NSURL URLWithString:image.url];
+//    [cell.noteImage]
+   // NSLog(@"my note: %@", self.myNotes[indexPath.item]);
     return cell;
 }
 
 - (NSInteger)collectionView:(UICollectionView *)collectionView numberOfItemsInSection:(NSInteger)section {
+    NSLog(@"%lu", (unsigned long)self.myNotes.count);
     return self.myNotes.count;
 }
 

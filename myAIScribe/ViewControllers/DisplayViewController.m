@@ -24,6 +24,8 @@
 @property (nonatomic, strong) NSMutableArray *filteredNotes;
 @property (nonatomic, strong) UIRefreshControl *refreshControl;
 @property (nonatomic) int selectedID;
+@property (weak, nonatomic) IBOutlet UILabel *scanNote;
+@property (weak, nonatomic) IBOutlet UIButton *scanBtn;
 @end
 
 @implementation DisplayViewController
@@ -43,8 +45,6 @@
 }
 - (UITableViewCell *)tableView:(UITableView *)tableView cellForRowAtIndexPath:(NSIndexPath *)indexPath {
     NoteTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"NoteTableViewCell" ];
-    cell.photoImageView.layer.cornerRadius = 20;
-    cell.photoImageView.clipsToBounds = YES;
     [cell setNote:self.filteredNotes[indexPath.row]];
     
     return cell;
@@ -85,6 +85,22 @@
             // do something with the data fetched
             self.notes = posts;
             self.filteredNotes = [self.notes mutableCopy];
+            if(self.notes.count == 0){
+                self.scanBtn.hidden = NO;
+                self.scanNote.alpha = 1;
+                if(self.selectedID == 1){
+                    self.scanNote.text = @"Find Friends";
+                    [self.scanBtn setBackgroundImage:[UIImage systemImageNamed:@"person.2.circle.fill"] forState: UIControlStateNormal];
+                }
+                else {
+                    self.scanNote.text = @"Scan Note";
+                    [self.scanBtn setBackgroundImage:[UIImage systemImageNamed:@"camera.circle"] forState: UIControlStateNormal];
+                }
+            }
+            else {
+                self.scanBtn.hidden = YES;
+                self.scanNote.alpha = 0;
+            }
             [self.tableView reloadData];
         }
         else {
@@ -93,6 +109,20 @@
     }];
     
     [self.refreshControl endRefreshing];
+}
+
+- (IBAction)scanFirstNote:(id)sender {
+    if(self.selectedID == 1) {
+        [self performSegueWithIdentifier:@"findFriendsSegue" sender: nil ];
+    }
+    else {
+        SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+        UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+        UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
+        [tabViewController setSelectedIndex:0];
+        appDelegate.window.rootViewController = tabViewController;
+    }
+    
 }
 
 // ----- search bar functionality ---

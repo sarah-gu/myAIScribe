@@ -37,6 +37,14 @@
     FindFriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FindFriendTableViewCell" ];
     cell.clickedUser = self.filteredUsers[indexPath.row];
     cell.nameLabel.text = self.filteredUsers[indexPath.row][@"username"];
+    
+    PFUser *currentUser = [PFUser currentUser];
+    NSArray *keys = [currentUser[@"friends"] valueForKeyPath:@"objectId"];
+    if([keys containsObject:[self.filteredUsers[indexPath.row] objectId]]) {
+         NSLog(@"nice");
+        [cell.followBtn setTitle:@"Following" forState:UIControlStateNormal];
+        cell.followBtn.enabled = NO;
+    }
     return cell;
 }
 

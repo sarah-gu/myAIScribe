@@ -9,9 +9,14 @@
 
 @implementation TableCollectionViewCell
 
-- (void) setNote:(Note *)note {
-    self.noteImage.file = note[@"image"];
-    [self.noteImage loadInBackground];
-}
+//- (void) setNote:(Note *)note {
+//    if([self.noteImage isEqual:nil]) {
+//        self.noteImage = nil;
+//    }
+//    else {
+//        self.noteImage.file = note[@"image"];
+//    }
+//    [self.noteImage loadInBackground];
+//}
 
 @end

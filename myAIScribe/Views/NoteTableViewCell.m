@@ -25,7 +25,7 @@
     self.fullName.text = [NSString stringWithFormat:@"%@", note[@"author"][@"fullName"]];
     self.subjectTag1.layer.masksToBounds = YES;
     self.subjectTag1.layer.cornerRadius = 10;
-    
+
     self.subjectTag2.layer.masksToBounds = YES;
     self.subjectTag2.layer.cornerRadius = 10;
     self.subjectTag3.layer.masksToBounds = YES;
@@ -43,7 +43,13 @@
         myField.alpha = 1;
        // myField.backgroundColor = [UIColor lightGrayColor];
         myField.backgroundColor = [[UIColor alloc] initWithRed: 68.0/255.0 green: 44.0/255.0 blue: 46.0/255.0 alpha: 1.0];
-        myField.text = subjectFromNote;
+        [subjectFromNote lengthOfBytesUsingEncoding:NSUTF8StringEncoding];
+        if(subjectFromNote.length > 10) {
+            myField.text = [NSString stringWithFormat:@" %@ ", subjectFromNote] ;
+        }
+        else {
+            myField.text = subjectFromNote;
+        }
     }
 }
 

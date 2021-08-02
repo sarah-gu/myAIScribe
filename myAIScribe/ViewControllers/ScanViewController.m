@@ -17,6 +17,7 @@
 @property (weak, nonatomic) IBOutlet UITextField *classTag2;
 @property (weak, nonatomic) IBOutlet UITextField *classTag3;
 @property (nonatomic) BOOL animateLabel;
+@property (weak, nonatomic) IBOutlet NSLayoutConstraint *classTagTopConstraint;
 
 @end
 
@@ -85,42 +86,27 @@
     [self.view endEditing:true];
     if(self.animateLabel){
         [UIView animateWithDuration:0.5 animations:^{
-            CGRect labelsFrame = self.classTag.frame;
-            labelsFrame.origin.y += 200;
-            self.classTag.frame = labelsFrame;
-            [self.classTag layoutIfNeeded];
-            
-            labelsFrame = self.classTag2.frame;
-            labelsFrame.origin.y += 200;
-            self.classTag2.frame = labelsFrame;
-            
-            labelsFrame = self.classTag3.frame;
-            labelsFrame.origin.y += 200;
-            self.classTag3.frame = labelsFrame;
+            self.classTagTopConstraint.constant = 8;
+            [self.view layoutIfNeeded];
         }];
         self.animateLabel = NO;
     }
 }
 
+
+
 - (IBAction)takeNewPic:(id)sender {
     [self takePic];
 }
+
 
 - (IBAction)onFirstTagWritten:(id)sender {
     self.classTag2.alpha = 1;
     if(!self.animateLabel){
         [UIView animateWithDuration:0.5 animations:^{
-            CGRect labelsFrame = self.classTag.frame;
-            labelsFrame.origin.y -= 200;
-            self.classTag.frame = labelsFrame;
-            
-            CGRect labelsFrame2 = self.classTag2.frame;
-            labelsFrame2.origin.y -= 200;
-            self.classTag2.frame = labelsFrame2;
-            
-            CGRect labelsFrame3 = self.classTag3.frame;
-            labelsFrame3.origin.y -= 200;
-            self.classTag3.frame = labelsFrame3;
+            self.classTagTopConstraint.constant = -208;
+            [self.view layoutIfNeeded]; // Called on parent view
+
         }];
     }
     self.animateLabel = YES;
@@ -128,6 +114,13 @@
 
 - (IBAction)secondTagWritten:(id)sender {
     self.classTag3.alpha = 1;
+    if(!self.animateLabel){
+        [UIView animateWithDuration:0.5 animations:^{
+            self.classTagTopConstraint.constant = -208;
+            [self.view layoutIfNeeded]; // Called on parent view
+        }];
+    }
+    self.animateLabel = YES;
 }
 
 -(void) takePic {

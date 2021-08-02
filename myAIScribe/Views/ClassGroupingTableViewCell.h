@@ -13,6 +13,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *className;
 @property (strong, nonatomic) NSArray* myNotes;
+-(void) updateNoteCells; 
 @end
 
 NS_ASSUME_NONNULL_END

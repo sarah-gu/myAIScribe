@@ -36,6 +36,8 @@
     ClassGroupingTableViewCell *cell = [self.tableView dequeueReusableCellWithIdentifier:@"ClassGroupingTableViewCell"];
     cell.myNotes= self.myClasses[indexPath.row];
     cell.className.text = self.idxToClassTracker[indexPath.row];
+    [cell updateNoteCells]; 
+  //  NSLog(@"%@ %@", cell.className.text, cell.myNotes);
     return cell;
 }
 
