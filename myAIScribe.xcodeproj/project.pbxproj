@@ -14,6 +14,7 @@
 		82CF139026B4966200301BE1 /* FindFriendTableViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF138F26B4966200301BE1 /* FindFriendTableViewCell.m */; };
 		82CF139326B4ABD300301BE1 /* ClassDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF139226B4ABD300301BE1 /* ClassDetailViewController.m */; };
 		82CF139926B4BA5800301BE1 /* ClassDetailCollectionViewCell.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF139826B4BA5800301BE1 /* ClassDetailCollectionViewCell.m */; };
+		82CF139C26B9A43400301BE1 /* EditInfoViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = 82CF139B26B9A43400301BE1 /* EditInfoViewController.m */; };
 		82D211BB269C7DDD007407C2 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211BA269C7DDD007407C2 /* AppDelegate.m */; };
 		82D211BE269C7DDD007407C2 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = 82D211BD269C7DDD007407C2 /* SceneDelegate.m */; };
 		82D211C4269C7DDD007407C2 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 82D211C2269C7DDD007407C2 /* Main.storyboard */; };
@@ -72,6 +73,8 @@
 		82CF139226B4ABD300301BE1 /* ClassDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailViewController.m; sourceTree = "<group>"; };
 		82CF139726B4BA5800301BE1 /* ClassDetailCollectionViewCell.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ClassDetailCollectionViewCell.h; sourceTree = "<group>"; };
 		82CF139826B4BA5800301BE1 /* ClassDetailCollectionViewCell.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ClassDetailCollectionViewCell.m; sourceTree = "<group>"; };
+		82CF139A26B9A43400301BE1 /* EditInfoViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = EditInfoViewController.h; sourceTree = "<group>"; };
+		82CF139B26B9A43400301BE1 /* EditInfoViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = EditInfoViewController.m; sourceTree = "<group>"; };
 		82D211B6269C7DDD007407C2 /* myAIScribe.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = myAIScribe.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		82D211B9269C7DDD007407C2 /* AppDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AppDelegate.h; sourceTree = "<group>"; };
 		82D211BA269C7DDD007407C2 /* AppDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AppDelegate.m; sourceTree = "<group>"; };
@@ -262,6 +265,8 @@
 				82CF138C26B494E800301BE1 /* FindFriendsViewController.m */,
 				82CF139126B4ABD300301BE1 /* ClassDetailViewController.h */,
 				82CF139226B4ABD300301BE1 /* ClassDetailViewController.m */,
+				82CF139A26B9A43400301BE1 /* EditInfoViewController.h */,
+				82CF139B26B9A43400301BE1 /* EditInfoViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -563,6 +568,7 @@
 				82D427E026A1DF7E0004044B /* GraphViewController.m in Sources */,
 				82D211FD269C9D2C007407C2 /* DisplayViewController.m in Sources */,
 				82D211BE269C7DDD007407C2 /* SceneDelegate.m in Sources */,
+				82CF139C26B9A43400301BE1 /* EditInfoViewController.m in Sources */,
 				82D21203269CD89D007407C2 /* DetailsViewController.m in Sources */,
 				82D427F426AA2AC30004044B /* FriendTableViewCell.m in Sources */,
 				82D427FB26B099A50004044B /* ClassGroupingTableViewCell.m in Sources */,

@@ -25,7 +25,7 @@
     self.tableView.delegate = self;
     self.tableView.dataSource = self;
     
-    if(!self.isFollowing){
+    if(self.isFollowing){
         self.titleLabel.text = @"Following";
     }
     else{
