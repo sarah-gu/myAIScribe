@@ -46,8 +46,10 @@
         } else {
             NSLog(@"User registered successfully");
             [newUser addObject:friendArray forKey:@"friends"];
-            [newUser saveInBackground];
             [newUser addObject:friendArray forKey:@"followers"];
+          //  [newUser addObject:nil forKey:@"image"];
+            
+            [newUser saveInBackground];
             // manually segue to logged in view
             [self performSegueWithIdentifier:@"mainPageSegue" sender:nil];
         }

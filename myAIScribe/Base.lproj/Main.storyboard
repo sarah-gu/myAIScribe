@@ -1011,7 +1011,7 @@
                                         <nil key="highlightedColor"/>
                                     </label>
                                     <button opaque="NO" contentMode="scaleToFill" fixedFrame="YES" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="jOc-RM-fWE">
-                                        <rect key="frame" x="281" y="13" width="57" height="49"/>
+                                        <rect key="frame" x="281" y="4" width="57" height="49"/>
                                         <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                         <state key="normal" title="Edit Info"/>
                                         <connections>
@@ -1249,6 +1249,9 @@
                                         <state key="normal" title="+ Follow">
                                             <color key="titleColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                         </state>
+                                        <connections>
+                                            <action selector="followOrEditBtn:" destination="plH-h0-X62" eventType="touchUpInside" id="qw8-f5-WDd"/>
+                                        </connections>
                                     </button>
                                     <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Posts" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="zFT-nu-Atj">
                                         <rect key="frame" x="136" y="61" width="42" height="25"/>
@@ -1343,8 +1346,9 @@
                         <outlet property="following" destination="iiK-1a-Us4" id="Lj4-mh-hKe"/>
                         <outlet property="fullName" destination="8iT-bC-Hbq" id="Tzj-W7-W8m"/>
                         <outlet property="numPosts" destination="t3h-xk-tKM" id="NaR-oX-h2W"/>
+                        <outlet property="profilePicture" destination="z87-AS-8yR" id="fyF-qv-rwr"/>
                         <outlet property="username" destination="HV1-gS-Qme" id="vuZ-4L-8ne"/>
-                        <segue destination="BrX-ln-Cal" kind="show" id="On6-Ah-SLQ"/>
+                        <segue destination="BrX-ln-Cal" kind="show" identifier="editInfoSegue" id="On6-Ah-SLQ"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="0rG-mq-Z3q" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -1531,6 +1535,7 @@
                                         <connections>
                                             <outlet property="followBtn" destination="LHM-7F-zvS" id="3vs-4F-ajl"/>
                                             <outlet property="nameLabel" destination="2CE-pW-9Aa" id="o4g-QW-PmO"/>
+                                            <outlet property="profilePicture" destination="cSi-Ve-ZP3" id="IHa-rp-fCe"/>
                                         </connections>
                                     </tableViewCell>
                                 </prototypes>
@@ -1719,7 +1724,7 @@
         <segue reference="kW6-zc-SbK"/>
         <segue reference="On6-Ah-SLQ"/>
         <segue reference="zbT-G6-ZzN"/>
-        <segue reference="41O-2u-7yn"/>
+        <segue reference="5t3-xM-58P"/>
         <segue reference="0Ck-xo-sft"/>
     </inferredMetricsTieBreakers>
     <resources>

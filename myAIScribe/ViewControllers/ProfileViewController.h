@@ -17,6 +17,7 @@ NS_ASSUME_NONNULL_BEGIN
 @property (weak, nonatomic) IBOutlet UICollectionView *collectionView;
 @property (weak, nonatomic) IBOutlet UILabel *numPosts;
 @property (weak, nonatomic) IBOutlet UIButton *followBtn;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (strong, nonatomic) NSArray *posts;
 @property (strong, nonatomic) PFUser *currentUser;
 

@@ -6,6 +6,7 @@
 //
 #import "DetailsViewController.h"
 #import "FollowerViewController.h"
+#import "Friends.h"
 #import "Note.h"
 #import "ProfileViewController.h"
 @import Parse;
@@ -25,6 +26,15 @@
     self.username.text = [NSString stringWithFormat:@"@%@", self.currentUser[@"username"]];
     self.fullName.text = self.currentUser[@"fullName"];
   //  NSLog(@"%@, %@", [self.currentUser objectId]);
+    
+    if(self.currentUser[@"profilePicture"] == nil){
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+    }
+    else {
+        self.profilePicture.file = self.currentUser[@"profilePicture"];
+        [self.profilePicture loadInBackground]; 
+    }
+    
     if([[self.currentUser objectId] isEqual:[PFUser currentUser].objectId]){
         [self.followBtn setTitle:@"Edit Info" forState:UIControlStateNormal];
     }
@@ -53,6 +63,33 @@
     [self queryFollowersCount];
     [self queryFollowingCount];
     [self.collectionView reloadData];
+}
+
+- (IBAction)followOrEditBtn:(id)sender {
+    if([[self.currentUser objectId] isEqual:[PFUser currentUser].objectId]) {
+        [self performSegueWithIdentifier:@"editInfoSegue" sender:nil];
+    }
+    else {
+        PFUser *currentUser = [PFUser currentUser];
+        PFUser *authorOfNote = self.currentUser;
+        
+        [Friends addNewFollowing:currentUser withFollowing:authorOfNote withCompletion:^(BOOL succeeded, NSError * _Nullable error) {
+            if(succeeded){
+                NSLog(@"new Friend created!");
+            }
+        }];
+        
+        NSMutableArray *myFriends = [currentUser objectForKey:@"friends"];
+        [myFriends addObject:self.currentUser];
+     
+        currentUser[@"friends"] = myFriends;
+        [currentUser saveInBackground];
+
+        [self.followBtn setTitle:@"Following" forState:UIControlStateNormal];
+        self.followBtn.enabled = NO;
+       // NSLog(@"%@", authorFollowers);
+        NSLog(@"friend & follower added! ");
+    }
 }
 
 - (void) queryFollowingCount {

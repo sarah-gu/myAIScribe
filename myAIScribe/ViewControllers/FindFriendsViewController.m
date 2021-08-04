@@ -37,6 +37,13 @@
     FindFriendTableViewCell *cell = [tableView dequeueReusableCellWithIdentifier:@"FindFriendTableViewCell" ];
     cell.clickedUser = self.filteredUsers[indexPath.row];
     cell.nameLabel.text = self.filteredUsers[indexPath.row][@"username"];
+    if(self.filteredUsers[indexPath.row][@"profilePicture"] == nil){
+        [cell.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+    }
+    else {
+        cell.profilePicture.file = self.filteredUsers[indexPath.row][@"profilePicture"];
+        [cell.profilePicture loadInBackground];
+    }
     
     PFUser *currentUser = [PFUser currentUser];
     NSArray *keys = [currentUser[@"friends"] valueForKeyPath:@"objectId"];
