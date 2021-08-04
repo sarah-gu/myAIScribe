@@ -15,6 +15,12 @@
 @property (weak, nonatomic) IBOutlet UILabel *fullNameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *usernameLabel;
 @property (weak, nonatomic) IBOutlet UILabel *joinedLabel;
+@property (weak, nonatomic) IBOutlet UIButton *btn1;
+@property (weak, nonatomic) IBOutlet UIButton *btn2;
+@property (weak, nonatomic) IBOutlet UIButton *btn3;
+@property (weak, nonatomic) IBOutlet UIButton *btn4;
+@property (weak, nonatomic) IBOutlet UIButton *bbtn5;
+@property (weak, nonatomic) IBOutlet UIButton *btn6;
 @property (weak, nonatomic) IBOutlet UILabel *numNotes;
 
 @end
@@ -39,6 +45,25 @@
     formatter.timeStyle = NSDateFormatterNoStyle;
     // Convert Date to String
     self.joinedLabel.text = [formatter stringFromDate:date];
+    
+    self.btn1.layer.masksToBounds = YES;
+    self.btn1.layer.cornerRadius = 25;
+
+    self.btn2.layer.masksToBounds = YES;
+    self.btn2.layer.cornerRadius = 25;
+    
+    self.btn3.layer.masksToBounds = YES;
+    self.btn3.layer.cornerRadius = 25;
+
+    self.btn4.layer.masksToBounds = YES;
+    self.btn4.layer.cornerRadius = 25;
+
+    self.bbtn5.layer.masksToBounds = YES;
+    self.bbtn5.layer.cornerRadius = 25;
+
+    self.btn6.layer.masksToBounds = YES;
+    self.btn6.layer.cornerRadius = 25;
+
     
     // Do any additional setup after loading the view.
 }

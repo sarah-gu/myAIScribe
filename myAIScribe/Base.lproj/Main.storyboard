@@ -1175,6 +1175,12 @@
                     </view>
                     <navigationItem key="navigationItem" id="HFe-LL-Kzv"/>
                     <connections>
+                        <outlet property="bbtn5" destination="kK8-l7-ypN" id="w7j-do-PYC"/>
+                        <outlet property="btn1" destination="Ugf-cs-3t8" id="wJ4-9b-f7s"/>
+                        <outlet property="btn2" destination="QgV-mB-g4e" id="SqG-2d-czi"/>
+                        <outlet property="btn3" destination="fEl-tf-8zo" id="5lX-8H-9qe"/>
+                        <outlet property="btn4" destination="fSd-4n-cQj" id="blI-Ab-Eot"/>
+                        <outlet property="btn6" destination="d4d-UP-lQG" id="OkN-Nt-A4q"/>
                         <outlet property="fullNameLabel" destination="14S-ct-cwa" id="CFG-qf-VEk"/>
                         <outlet property="joinedLabel" destination="5US-th-cHW" id="faT-CH-oKV"/>
                         <outlet property="numNotes" destination="qyZ-Pf-yFI" id="4pG-2q-WEw"/>
@@ -1777,7 +1783,7 @@
         <segue reference="R1o-Bl-7Vm"/>
         <segue reference="kW6-zc-SbK"/>
         <segue reference="ayc-ga-gyM"/>
-        <segue reference="SPs-Pi-Xo3"/>
+        <segue reference="zbT-G6-ZzN"/>
         <segue reference="5t3-xM-58P"/>
         <segue reference="hMC-Nm-is6"/>
     </inferredMetricsTieBreakers>

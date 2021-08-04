@@ -127,13 +127,23 @@
     UIImagePickerController *imagePickerVC = [UIImagePickerController new];
     imagePickerVC.delegate = self;
     imagePickerVC.allowsEditing = YES;
+
+    imagePickerVC.navigationBarHidden = YES;
+    imagePickerVC.toolbarHidden = YES;
     // The Xcode simulator does not support taking pictures, so let's first check that the camera is indeed supported on the device before trying to present it.
     if ([UIImagePickerController isSourceTypeAvailable:UIImagePickerControllerSourceTypeCamera]) {
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypeCamera;
+        imagePickerVC.cameraCaptureMode = UIImagePickerControllerCameraCaptureModePhoto;
+        imagePickerVC.cameraFlashMode = UIImagePickerControllerCameraFlashModeOff;
+        imagePickerVC.showsCameraControls = NO;
     }
     else {
         NSLog(@"Camera 🚫 available so we will use photo library instead");
         imagePickerVC.sourceType = UIImagePickerControllerSourceTypePhotoLibrary;
+    }
+    if ([[UIScreen mainScreen] bounds].size.height == 568.0f) {
+        // iPhone 5, 16:9 ratio, need to "zoom in" in order to fill the screen since there is extra space between top and bottom bars on a taller screen
+        imagePickerVC.cameraViewTransform = CGAffineTransformScale(imagePickerVC.cameraViewTransform, 1.5, 1.5); // change 1.5 to suit your needs
     }
     [self presentViewController:imagePickerVC animated:YES completion:nil];
 }
