@@ -109,14 +109,14 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
   - [X] Allow for caption textView editing on the Details Page
   - [X] Create Friends class on Parse database for better storing of Follower / Following information [1 day]
   - [X] Added a view notes by class grouping function, and a new page to display those notes [1 day]
-  - [ ] Add suggested notes functionality [1 day]
-  - [ ] Improve UI design / Autolayout constraints [2 days] 
-  - [ ] Test accuracy of CoreML (uploading new pictures handwritten vs textbook) [1/2 day] 
-  - [ ] Create new pages for the Goals & reminders tabs, adding more view controllers for different tabs in the Settings page. [1-2 days]
-  - [ ] Highlight key words on paper after searching for the words in the note. [1 day] 
-  - [ ] Scrollable UI View 
-  * Class object to organize notes / group by class
+  - [X] Improve UI design / Autolayout constraints [2 days] 
+  - [X] Test accuracy of CoreML (uploading new pictures handwritten vs textbook) [1/2 day] 
+  - [X] Scrollable UI View 
 * Week 4 & 5
+  - [X] Animations for the class tags & scrollable caption, constraining scrollview 
+  - [X] Add buttons for scanning and finding friends if TableView is empty [1 day]
+  - [X] Edit info view controller & profile picture upload option [1 day]
+  - [ ] Polishing UI & rounding corners of buttons / formatting [2 days] 
   * Submit demo & record video by 8/6
 
 
