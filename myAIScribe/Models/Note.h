@@ -9,14 +9,14 @@
 
 @interface Note : PFObject<PFSubclassing>
 
-@property (nonatomic, strong) NSString *postID;
-@property (nonatomic, strong) PFUser *author;
+@property (nonatomic, strong) NSString * _Nullable postID;
+@property (nonatomic, strong) PFUser * _Nullable author;
 
-@property (nonatomic, strong) NSString *caption;
-@property (nonatomic, strong) PFFileObject *image;
-@property (nonatomic, strong) NSString *subject1;
-@property (nonatomic, strong) NSString *subject2;
-@property (nonatomic, strong) NSString *subject3; 
+@property (nonatomic, strong) NSString * _Nullable caption;
+@property (nonatomic, strong) PFFileObject * _Nullable image;
+@property (nonatomic, strong) NSString * _Nullable  subject1;
+@property (nonatomic, strong) NSString * _Nullable subject2;
+@property (nonatomic, strong) NSString * _Nullable subject3;
 //@property (nonatomic, strong) NSNumber *likeCount;
 //@property (nonatomic, strong) NSNumber *commentCount;
 

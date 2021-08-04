@@ -41,6 +41,8 @@
         [cell.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
     }
     else {
+        cell.profilePicture.layer.masksToBounds = YES;
+        cell.profilePicture.layer.cornerRadius = 20;
         cell.profilePicture.file = self.filteredUsers[indexPath.row][@"profilePicture"];
         [cell.profilePicture loadInBackground];
     }

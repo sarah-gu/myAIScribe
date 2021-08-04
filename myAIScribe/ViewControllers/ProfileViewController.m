@@ -34,6 +34,8 @@
         self.profilePicture.file = self.currentUser[@"profilePicture"];
         [self.profilePicture loadInBackground]; 
     }
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.cornerRadius = 37.5;
     
     if([[self.currentUser objectId] isEqual:[PFUser currentUser].objectId]){
         [self.followBtn setTitle:@"Edit Info" forState:UIControlStateNormal];

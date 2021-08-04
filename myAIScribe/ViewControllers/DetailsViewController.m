@@ -20,6 +20,7 @@
 @property (weak, nonatomic) IBOutlet UILabel *timePostedLabel;
 @property (weak, nonatomic) IBOutlet UIButton *deletePostBtn;
 @property (weak, nonatomic) IBOutlet UIButton *followFriendBtn;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 @property (weak, nonatomic) IBOutlet UITextView *generatedCaption;
 @property (weak, nonatomic) IBOutlet UIScrollView *scrollView;
 @property (strong, nonatomic) PFUser *noteAuthor;
@@ -57,7 +58,17 @@
         self.followFriendBtn.hidden = YES;
         self.generatedCaption.editable = YES;
     }
-   // NSLog(@"following arr: %@", currentUser[@"friends"]);
+    if(self.noteAuthor[@"profilePicture"] == nil){
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+    }
+    else {
+        self.profilePicture.file = self.noteAuthor[@"profilePicture"];
+        [self.profilePicture loadInBackground];
+    }
+    
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.cornerRadius = 26.5;
+    
     NSArray *keys = [currentUser[@"friends"] valueForKeyPath:@"objectId"];
     if([keys containsObject:[self.note[@"author"] objectId]]) {
          NSLog(@"nice");

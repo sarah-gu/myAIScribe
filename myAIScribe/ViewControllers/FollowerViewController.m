@@ -14,6 +14,7 @@
 @interface FollowerViewController () <UITableViewDelegate, UITableViewDataSource>
 @property (weak, nonatomic) IBOutlet UITableView *tableView;
 @property (weak, nonatomic) IBOutlet UILabel *titleLabel;
+
 @property (strong, nonatomic) NSArray *myFriends;
 @end
 
@@ -32,6 +33,7 @@
         self.titleLabel.text = @"Followers";
     }
     
+
     [self queryMyFollowing];
     [self.tableView reloadData];
 }
@@ -68,6 +70,17 @@
     else{
         cell.nameLabel.text = friend[@"follower"][@"username"];
     }
+    if(friend[@"profilePicture"] == nil){
+        [cell.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+    }
+    else {
+        cell.profilePicture.file = friend[@"profilePicture"];
+        [cell.profilePicture loadInBackground];
+    }
+    
+    cell.profilePicture.layer.masksToBounds = YES;
+    cell.profilePicture.layer.cornerRadius = 37.5;
+    
     return cell;
 }
 

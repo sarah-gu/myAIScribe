@@ -28,7 +28,19 @@
     self.emailField.text = currentUser[@"email"];
     self.passwordField.text = currentUser[@"password"];
     self.usernameField.text = currentUser[@"fullName"];
-    self.profilePicture.file = currentUser[@"profilePicture"];
+    if(currentUser[@"profilePicture"] == nil){
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+    }
+    else {
+        self.profilePicture.file = currentUser[@"profilePicture"];
+        [self.profilePicture loadInBackground];
+    }
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.cornerRadius = 75;
+}
+
+- (IBAction)onTap:(id)sender {
+    [self.view endEditing:true];
 }
 
 - (IBAction)saveInfoOnClick:(id)sender {
