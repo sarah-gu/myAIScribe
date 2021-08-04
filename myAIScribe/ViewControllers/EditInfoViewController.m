@@ -7,6 +7,7 @@
 
 #import "EditInfoViewController.h"
 @import Parse;
+#import "SceneDelegate.h"
 
 @interface EditInfoViewController () <UIImagePickerControllerDelegate, UINavigationControllerDelegate>
 @property (weak, nonatomic) IBOutlet UITextField *nameField;
@@ -41,7 +42,15 @@
 
     currentUser[@"profilePicture"] = [PFFileObject fileObjectWithName:@"image.png" data:imageData];
     
-    [currentUser saveInBackground];
+    [currentUser saveInBackgroundWithBlock:^(BOOL succeeded, NSError * _Nullable error) {
+        if(!error){
+            SceneDelegate *appDelegate = (SceneDelegate *)self.view.window.windowScene.delegate;
+            UIStoryboard *storyboard = [UIStoryboard storyboardWithName:@"Main" bundle:nil];
+            UITabBarController *tabViewController = [storyboard instantiateViewControllerWithIdentifier:@"TabBarController" ];
+            [tabViewController setSelectedIndex:2];
+            appDelegate.window.rootViewController = tabViewController;
+        }
+    }];
     
 }
 

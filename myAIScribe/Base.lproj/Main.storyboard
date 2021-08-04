@@ -954,7 +954,7 @@
         <!--Settings View Controller-->
         <scene sceneID="kf6-b0-etm">
             <objects>
-                <viewController id="0iG-4L-OSQ" customClass="SettingsViewController" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="SettingsViewController" id="0iG-4L-OSQ" customClass="SettingsViewController" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="HNY-sM-tpU">
                         <rect key="frame" x="0.0" y="0.0" width="390" height="844"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -1452,10 +1452,10 @@
                                 <rect key="frame" x="288" y="7" width="86" height="30"/>
                                 <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
                                 <state key="normal" title="Save Info"/>
+                                <connections>
+                                    <action selector="saveInfoOnClick:" destination="BrX-ln-Cal" eventType="touchUpInside" id="iyX-pH-UMZ"/>
+                                </connections>
                             </button>
-                            <connections>
-                                <action selector="saveInfoOnClick:" destination="BrX-ln-Cal" id="O3N-sR-w8j"/>
-                            </connections>
                         </barButtonItem>
                     </navigationItem>
                     <connections>
@@ -1722,7 +1722,7 @@
     <inferredMetricsTieBreakers>
         <segue reference="R1o-Bl-7Vm"/>
         <segue reference="kW6-zc-SbK"/>
-        <segue reference="On6-Ah-SLQ"/>
+        <segue reference="ayc-ga-gyM"/>
         <segue reference="zbT-G6-ZzN"/>
         <segue reference="5t3-xM-58P"/>
         <segue reference="0Ck-xo-sft"/>
