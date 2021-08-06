@@ -116,8 +116,7 @@ Mobile app to keep track of your coursework history, grades, and plan for upcomi
   - [X] Animations for the class tags & scrollable caption, constraining scrollview 
   - [X] Add buttons for scanning and finding friends if TableView is empty [1 day]
   - [X] Edit info view controller & profile picture upload option [1 day]
-  - [ ] Polishing UI & rounding corners of buttons / formatting [2 days] 
-  * Submit demo & record video by 8/6
+  - [X] Polishing UI & rounding corners of buttons / formatting [2 days] 
 
 
 
