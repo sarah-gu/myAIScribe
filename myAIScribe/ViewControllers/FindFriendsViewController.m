@@ -38,11 +38,11 @@
     cell.clickedUser = self.filteredUsers[indexPath.row];
     cell.nameLabel.text = self.filteredUsers[indexPath.row][@"username"];
     if(self.filteredUsers[indexPath.row][@"profilePicture"] == nil){
-        [cell.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+        [cell.profilePicture setImage:[UIImage systemImageNamed:@"person.crop.circle"]];
     }
     else {
         cell.profilePicture.layer.masksToBounds = YES;
-        cell.profilePicture.layer.cornerRadius = 20;
+        cell.profilePicture.layer.cornerRadius = 37.5;
         cell.profilePicture.file = self.filteredUsers[indexPath.row][@"profilePicture"];
         [cell.profilePicture loadInBackground];
     }

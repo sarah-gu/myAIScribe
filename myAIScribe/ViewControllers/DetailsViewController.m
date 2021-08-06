@@ -59,7 +59,7 @@
         self.generatedCaption.editable = YES;
     }
     if(self.noteAuthor[@"profilePicture"] == nil){
-        [self.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"person.crop.circle"]];
     }
     else {
         self.profilePicture.file = self.noteAuthor[@"profilePicture"];
@@ -68,6 +68,12 @@
     
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.cornerRadius = 26.5;
+    
+    self.generatedCaption.layer.masksToBounds = YES;
+    self.generatedCaption.layer.cornerRadius = 20;
+    
+    self.followFriendBtn.layer.masksToBounds = YES;
+    self.followFriendBtn.layer.cornerRadius = 16; 
     
     NSArray *keys = [currentUser[@"friends"] valueForKeyPath:@"objectId"];
     if([keys containsObject:[self.note[@"author"] objectId]]) {

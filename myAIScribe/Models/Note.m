@@ -32,7 +32,8 @@
     newNote.image = [self getPFFileFromImage:image];
     newNote.author = [PFUser currentUser];
     NSLog(@"saving post");
-    newNote.caption = [self generateCaption:image];
+    NSString * myCaption = [self generateCaption:image];
+    newNote.caption = [myCaption stringByReplacingOccurrencesOfString:@"." withString:@".\n"];
     newNote.subject1 = mySubject1;
     newNote.subject2 = mySubject2;
     newNote.subject3 = mySubject3;

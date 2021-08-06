@@ -27,9 +27,9 @@
     self.nameField.text = currentUser[@"fullName"];
     self.emailField.text = currentUser[@"email"];
     self.passwordField.text = currentUser[@"password"];
-    self.usernameField.text = currentUser[@"fullName"];
+    self.usernameField.text = currentUser[@"username"];
     if(currentUser[@"profilePicture"] == nil){
-        [self.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"person.crop.circle"]];
     }
     else {
         self.profilePicture.file = currentUser[@"profilePicture"];
@@ -47,7 +47,9 @@
     PFUser *currentUser = [PFUser currentUser];
     currentUser[@"fullName"] = self.nameField.text;
     currentUser[@"email"] = self.emailField.text;
-    currentUser[@"password"] = self.passwordField.text;
+    if(![self.passwordField.text isEqual:@""]) {
+        currentUser[@"password"] = self.passwordField.text;
+    }
     UIImage *image = self.profilePicture.image;
 
     NSData *imageData = UIImagePNGRepresentation(image);

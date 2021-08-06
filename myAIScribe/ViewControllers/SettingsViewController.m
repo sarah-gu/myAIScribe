@@ -22,6 +22,7 @@
 @property (weak, nonatomic) IBOutlet UIButton *bbtn5;
 @property (weak, nonatomic) IBOutlet UIButton *btn6;
 @property (weak, nonatomic) IBOutlet UILabel *numNotes;
+@property (weak, nonatomic) IBOutlet PFImageView *profilePicture;
 
 @end
 
@@ -63,8 +64,16 @@
 
     self.btn6.layer.masksToBounds = YES;
     self.btn6.layer.cornerRadius = 25;
-
     
+    if(loggedInUser[@"profilePicture"] == nil){
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"person.crop.circle"]];
+    }
+    else {
+        self.profilePicture.file = loggedInUser[@"profilePicture"];
+        [self.profilePicture loadInBackground];
+    }
+    self.profilePicture.layer.masksToBounds = YES;
+    self.profilePicture.layer.cornerRadius = 30;
     // Do any additional setup after loading the view.
 }
 - (IBAction)logoutBtn:(id)sender {

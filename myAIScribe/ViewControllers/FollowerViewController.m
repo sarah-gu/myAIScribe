@@ -49,6 +49,7 @@
     }
     [friendQuery includeKey:@"following"];
     [friendQuery includeKey:@"follower"];
+    [friendQuery includeKey:@"profilePicture"];
     friendQuery.limit = 20;
     [friendQuery findObjectsInBackgroundWithBlock:^(NSArray * _Nullable users, NSError * _Nullable error) {
         if(users){
@@ -71,7 +72,7 @@
         cell.nameLabel.text = friend[@"follower"][@"username"];
     }
     if(friend[@"profilePicture"] == nil){
-        [cell.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+        [cell.profilePicture setImage:[UIImage systemImageNamed:@"person.crop.circle"]];
     }
     else {
         cell.profilePicture.file = friend[@"profilePicture"];

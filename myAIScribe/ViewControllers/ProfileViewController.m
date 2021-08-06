@@ -28,7 +28,7 @@
   //  NSLog(@"%@, %@", [self.currentUser objectId]);
     
     if(self.currentUser[@"profilePicture"] == nil){
-        [self.profilePicture setImage:[UIImage systemImageNamed:@"suit.heart.fill"]];
+        [self.profilePicture setImage:[UIImage systemImageNamed:@"person.crop.circle"]];
     }
     else {
         self.profilePicture.file = self.currentUser[@"profilePicture"];
@@ -36,6 +36,9 @@
     }
     self.profilePicture.layer.masksToBounds = YES;
     self.profilePicture.layer.cornerRadius = 37.5;
+    
+    self.followBtn.layer.masksToBounds = YES;
+    self.followBtn.layer.cornerRadius = 18; 
     
     if([[self.currentUser objectId] isEqual:[PFUser currentUser].objectId]){
         [self.followBtn setTitle:@"Edit Info" forState:UIControlStateNormal];

@@ -77,7 +77,7 @@
         [postQuery includeKey:@"friends"];
     }
     [postQuery includeKey:@"author"];
-    postQuery.limit = 20;
+    postQuery.limit = 30;
 
     // fetch data asynchronously
     [postQuery findObjectsInBackgroundWithBlock:^(NSArray<Note *> * _Nullable posts, NSError * _Nullable error) {
